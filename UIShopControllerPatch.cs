@@ -50,13 +50,12 @@ namespace RF5_ShopTweak
 						shopItem.itemLv = itemLv;
 					else
 						shopItem.itemLv = 1;
-					shopItem.prices = shopItem.GetPrices();
+					shopItem.prices = CalcPrices(shopItem.ItemId, shopItem.itemLv);
 					__result.ShopCatalogPages[i].shopItems.Add(shopItem);
 
-					Main.Log.LogDebug(string.Format("AddItem category:{0}, page:{1}, itemId:{2} itemLv:{3}",
-						category, i + 1, itemId, shopItem.itemLv
+					Main.Log.LogDebug(string.Format("AddItem category:{0}, page:{1}, itemId:{2}, itemLv:{3}, prices:{4}",
+						category, i + 1, itemId, shopItem.itemLv, shopItem.prices
 					));
-					
 				}
 			}
 		}
@@ -89,16 +88,14 @@ namespace RF5_ShopTweak
 						shopItem.conditions?.Clear();
 						shopItem.id = 0;
 						shopItem.storyLineFrag = GameFlagData.None;
-
 						if (newItemIdAndLevel.Length > 1 && int.TryParse(newItemIdAndLevel[1], out int itemLv))
 							shopItem.itemLv = itemLv;
 						else
 							shopItem.itemLv = 1;
+						shopItem.prices = CalcPrices(shopItem.ItemId, shopItem.itemLv);
 
-						shopItem.prices = shopItem.GetPrices();
-
-						Main.Log.LogDebug(string.Format("ReplaceItem category:{0}, page:{1}, oldItemId:{2}, newItemId:{3}, itemLv:{4}",
-							category, i + 1, oldItemId, newItemId, shopItem.itemLv
+						Main.Log.LogDebug(string.Format("ReplaceItem category:{0}, page:{1}, oldItemId:{2}, newItemId:{3}, itemLv:{4}, prices:{5}",
+							category, i + 1, oldItemId, newItemId, shopItem.itemLv, shopItem.prices
 						));
 					}
 				}
@@ -129,11 +126,11 @@ namespace RF5_ShopTweak
 						shopItem.itemLv = itemLv;
 					else
 						shopItem.itemLv = 1;
-					shopItem.prices = shopItem.GetPrices();
+					shopItem.prices = CalcPrices(shopItem.ItemId, shopItem.itemLv);
 					page.shopItems.Add(shopItem);
 
-					Main.Log.LogDebug(string.Format("NewPage category:{0}, page:{1}, pageName:{2}, itemId:{3}, itemLv:{4}",
-						category, __result.ShopCatalogPages.Count + i + 1, page.name, itemId, shopItem.itemLv
+					Main.Log.LogDebug(string.Format("NewPage category:{0}, page:{1}, pageName:{2}, itemId:{3}, itemLv:{4}, prices:{5}",
+						category, __result.ShopCatalogPages.Count + i + 1, page.name, itemId, shopItem.itemLv, shopItem.prices
 					));
 				}
 
@@ -173,6 +170,16 @@ namespace RF5_ShopTweak
 					}
 				}
 			}
+		}
+
+		static int CalcPrices(ItemID itemId, int itemLv = 1)
+		{
+			ItemDataTable data = ItemDataTable.GetDataTable(itemId);
+			Main.Log.LogDebug(string.Format("item prices: shop:{0}, sell:{1}, calc:{2}",
+				data.ShopPrice, data.SellPrice, data.GetShopPrice(itemLv)
+			));
+
+			return data.GetShopPrice(itemLv);
 		}
 	}
 }
