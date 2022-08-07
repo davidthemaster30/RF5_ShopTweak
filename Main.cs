@@ -9,6 +9,7 @@ using BepInEx.IL2CPP;
 using BepInEx.Logging;
 using System.Reflection;
 using System.IO;
+using RF5SHOP;
 
 namespace RF5_ShopTweak
 {
@@ -19,7 +20,7 @@ namespace RF5_ShopTweak
 		#region PluginInfo
 		private const string GUID = "A465AF6E-9709-261F-EDCA-7E777C4AD8C1";
 		private const string NAME = "RF5_ShopTweak";
-		private const string VERSION = "1.0";
+		private const string VERSION = "1.1";
 		private const string GAME_PROCESS = "Rune Factory 5.exe";
 		#endregion
 
