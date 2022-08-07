@@ -179,7 +179,8 @@ namespace RF5_ShopTweak
 				data.ShopPrice, data.SellPrice, data.GetShopPrice(itemLv)
 			));
 
-			return data.GetShopPrice(itemLv);
+			//return data.GetShopPrice(itemLv);
+			return data.ShopPrice;
 		}
 	}
 }
