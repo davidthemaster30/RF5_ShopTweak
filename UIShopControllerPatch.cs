@@ -15,6 +15,10 @@ namespace RF5_ShopTweak
 	{
 		static void Postfix(UIShopController __instance)
 		{
+			// 家具菜单放不了物品
+			if (__instance.ShopMenuType != ShopMenuType.ITEM)
+				return;
+
 			string category = __instance.shopType.ToString();
 			HandleAddItem(category, __instance.NpcShopTable);
 			HandleNewPage(category, __instance.NpcShopTable);
