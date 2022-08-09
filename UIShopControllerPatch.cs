@@ -28,8 +28,13 @@ namespace RF5_ShopTweak
 			__instance.pageMax = __instance.NpcShopTable.ShopCatalogPages.Count;
 			__instance.ChangePagesGroup.SetActive(__instance.NpcShopTable.ShopCatalogPages.Count > 1);
 
-			Main.Log.LogDebug(string.Format("SetShopTable shopType:{0}, shopPages:{1}, pageMax:{2}",
-				__instance.shopType, __instance.NpcShopTable.ShopCatalogPages.Count, __instance.pageMax
+			// 价格倍率，实际价格=RoundToInt(商店价格*此数值)
+			float rate = Main.Config.GetFloat(category, "PriceMultiplier", -1.0f);
+			if (rate >= 0.0f)
+				__instance.UIShopControl.discountRate = rate;
+
+			Main.Log.LogDebug(string.Format("SetShopTable shopType:{0}, shopPages:{1}, pageMax:{2}, discountRate:{3}",
+				__instance.shopType, __instance.NpcShopTable.ShopCatalogPages.Count, __instance.pageMax, __instance.UIShopControl.discountRate
 			));
 
 			foreach (ShopCatalogPage page in __instance.NpcShopTable.ShopCatalogPages)
@@ -48,13 +53,15 @@ namespace RF5_ShopTweak
 					if (!int.TryParse(itemIdAndLevel[0], out int itemId))
 						continue;
 
-					ShopItem shopItem = new ShopItem();
-					shopItem.ItemId = (ItemID)itemId;
+					ShopItem shopItem = new ShopItem
+					{
+						ItemId = (ItemID)itemId,
+						prices = 100,	// 实际价格=这个数值*商店价格/100
+					};
 					if (itemIdAndLevel.Length > 1 && int.TryParse(itemIdAndLevel[1], out int itemLv))
 						shopItem.itemLv = itemLv;
 					else
 						shopItem.itemLv = 1;
-					shopItem.prices = CalcPrices(shopItem.ItemId, shopItem.itemLv);
 					__result.ShopCatalogPages[i].shopItems.Add(shopItem);
 
 					Main.Log.LogDebug(string.Format("AddItem category:{0}, page:{1}, itemId:{2}, itemLv:{3}, prices:{4}",
@@ -96,7 +103,7 @@ namespace RF5_ShopTweak
 							shopItem.itemLv = itemLv;
 						else
 							shopItem.itemLv = 1;
-						shopItem.prices = CalcPrices(shopItem.ItemId, shopItem.itemLv);
+						shopItem.prices = 100;  // 实际价格=这个数值*商店价格/100
 
 						Main.Log.LogDebug(string.Format("ReplaceItem category:{0}, page:{1}, oldItemId:{2}, newItemId:{3}, itemLv:{4}, prices:{5}",
 							category, i + 1, oldItemId, newItemId, shopItem.itemLv, shopItem.prices
@@ -123,14 +130,16 @@ namespace RF5_ShopTweak
 					string[] itemIdAndLevel = item.Trim().Split('+');
 					if (!int.TryParse(itemIdAndLevel[0], out int itemId))
 						continue;
-					
-					ShopItem shopItem = new ShopItem();
-					shopItem.ItemId = (ItemID)itemId;
+
+					ShopItem shopItem = new ShopItem
+					{
+						ItemId = (ItemID)itemId,
+						prices = 100,   // 实际价格=这个数值*商店价格/100
+					};
 					if (itemIdAndLevel.Length > 1 && int.TryParse(itemIdAndLevel[1], out int itemLv))
 						shopItem.itemLv = itemLv;
 					else
 						shopItem.itemLv = 1;
-					shopItem.prices = CalcPrices(shopItem.ItemId, shopItem.itemLv);
 					page.shopItems.Add(shopItem);
 
 					Main.Log.LogDebug(string.Format("NewPage category:{0}, page:{1}, pageName:{2}, itemId:{3}, itemLv:{4}, prices:{5}",
@@ -179,8 +188,8 @@ namespace RF5_ShopTweak
 		static int CalcPrices(ItemID itemId, int itemLv = 1)
 		{
 			ItemDataTable data = ItemDataTable.GetDataTable(itemId);
-			Main.Log.LogDebug(string.Format("item prices: shop:{0}, sell:{1}, calc:{2}",
-				data.ShopPrice, data.SellPrice, data.GetShopPrice(itemLv)
+			Main.Log.LogDebug(string.Format("itemid:{3}, itemlv:{4}, item prices: shop:{0}, sell:{1}, calc:{2}",
+				data.ShopPrice, data.SellPrice, data.GetShopPrice(itemLv), (int)itemId, itemLv
 			));
 
 			//return data.GetShopPrice(itemLv);
