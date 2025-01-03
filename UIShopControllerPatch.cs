@@ -1,199 +1,206 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Define;
 using HarmonyLib;
 using RF5SHOP;
-using Define;
-using UnityEngine.Events;
 
-namespace RF5_ShopTweak
+namespace RF5_ShopTweak;
+
+[HarmonyPatch(typeof(UIShopController), nameof(UIShopController.SetShopTable))]
+public class UIShopControllerChangePage
 {
-	[HarmonyPatch(typeof(UIShopController), nameof(UIShopController.SetShopTable))]
-	public class UIShopControllerChangePage
+	static int CalcPrices(ItemID itemId, int itemLv = 1)
 	{
-		static void Postfix(UIShopController __instance)
+		ItemDataTable data = ItemDataTable.GetDataTable(itemId);
+		Main.Log.LogDebug($"itemid:{(int)itemId}, itemlv:{itemLv}, item prices: shop:{data.ShopPrice}, sell:{data.SellPrice}, calc:{data.GetShopPrice(itemLv)}");
+
+		return data.ShopPrice;
+	}
+
+	static void HandleAddItem(string category, NpcShopTable __result)
+	{
+		for (int i = 0; i < __result.ShopCatalogPages.Count; i++)
 		{
-			// 家具菜单放不了物品
-			if (__instance.ShopMenuType != ShopMenuType.ITEM)
-				return;
-
-			string category = __instance.shopType.ToString();
-			HandleAddItem(category, __instance.NpcShopTable);
-			HandleNewPage(category, __instance.NpcShopTable);
-			HandleReplaceItem(category, __instance.NpcShopTable);
-			HandleRemoveItem(category, __instance.NpcShopTable);
-
-			__instance.pageMax = __instance.NpcShopTable.ShopCatalogPages.Count;
-			__instance.ChangePagesGroup.SetActive(__instance.NpcShopTable.ShopCatalogPages.Count > 1);
-
-			// 价格倍率，实际价格=RoundToInt(商店价格*此数值)
-			float rate = Main.Config.GetFloat(category, "PriceMultiplier", -1.0f);
-			if (rate >= 0.0f)
-				__instance.UIShopControl.discountRate = rate;
-
-			Main.Log.LogDebug(string.Format("SetShopTable shopType:{0}, shopPages:{1}, pageMax:{2}, discountRate:{3}",
-				__instance.shopType, __instance.NpcShopTable.ShopCatalogPages.Count, __instance.pageMax, __instance.UIShopControl.discountRate
-			));
-
-			foreach (ShopCatalogPage page in __instance.NpcShopTable.ShopCatalogPages)
-				Main.Log.LogDebug(string.Format("Page:{0}, itemCount:{1}", page.name, page.shopItems.Count));
-		}
-
-		// 增加物品
-		static void HandleAddItem(string category, NpcShopTable __result)
-		{
-			for (int i = 0; i < __result.ShopCatalogPages.Count; i++)
+			foreach (string item in Main.Config.GetString(category, $"AddItem{i + 1}", "").Split(','))
 			{
-				foreach (string item in Main.Config.GetString(category, string.Format("AddItem{0}", i + 1), "").Split(','))
+				// itemId+itemLv
+				string[] itemIdAndLevel = item.Trim().Split('+');
+				if (!int.TryParse(itemIdAndLevel[0], out int itemId))
 				{
-					// itemId+itemLv
-					string[] itemIdAndLevel = item.Trim().Split('+');
-					if (!int.TryParse(itemIdAndLevel[0], out int itemId))
-						continue;
-
-					ShopItem shopItem = new ShopItem
-					{
-						ItemId = (ItemID)itemId,
-						prices = 100,	// 实际价格=这个数值*商店价格/100
-					};
-					if (itemIdAndLevel.Length > 1 && int.TryParse(itemIdAndLevel[1], out int itemLv))
-						shopItem.itemLv = itemLv;
-					else
-						shopItem.itemLv = 1;
-					__result.ShopCatalogPages[i].shopItems.Add(shopItem);
-
-					Main.Log.LogDebug(string.Format("AddItem category:{0}, page:{1}, itemId:{2}, itemLv:{3}, prices:{4}",
-						category, i + 1, itemId, shopItem.itemLv, shopItem.prices
-					));
+					continue;
 				}
-			}
-		}
 
-		// 替换物品
-		static void HandleReplaceItem(string category, NpcShopTable __result)
-		{
-			for (int i = 0; i < __result.ShopCatalogPages.Count; i++)
-			{
-				foreach (string item in Main.Config.GetString(category, string.Format("ReplaceItem{0}", i + 1), "").Split(','))
+				ShopItem shopItem = new ShopItem
 				{
-					// oldId=newId+newLv
-					string[] itemIdToItemId = item.Trim().Split('=');
-					if (itemIdToItemId.Length < 2)
-						break;
-
-					// newId+newLv
-					string[] newItemIdAndLevel = itemIdToItemId[1].Split('+');
-
-					if (!int.TryParse(itemIdToItemId[0], out int oldItemId) ||
-						!int.TryParse(newItemIdAndLevel[0], out int newItemId))
-						continue;
-
-					foreach(ShopItem shopItem in __result.ShopCatalogPages[i].shopItems)
-					{
-						if (shopItem.ItemId != (ItemID)oldItemId)
-							continue;
-
-						shopItem.ItemId = (ItemID)newItemId;
-						shopItem.conditions?.Clear();
-						shopItem.id = 0;
-						shopItem.storyLineFrag = GameFlagData.None;
-						if (newItemIdAndLevel.Length > 1 && int.TryParse(newItemIdAndLevel[1], out int itemLv))
-							shopItem.itemLv = itemLv;
-						else
-							shopItem.itemLv = 1;
-						shopItem.prices = 100;  // 实际价格=这个数值*商店价格/100
-
-						Main.Log.LogDebug(string.Format("ReplaceItem category:{0}, page:{1}, oldItemId:{2}, newItemId:{3}, itemLv:{4}, prices:{5}",
-							category, i + 1, oldItemId, newItemId, shopItem.itemLv, shopItem.prices
-						));
-					}
-				}
-			}
-		}
-
-		// 增加新页
-		static void HandleNewPage(string category, NpcShopTable __result)
-		{
-			for (int i = 0; i < 99; ++i)
-			{
-				ShopCatalogPage page = new ShopCatalogPage
-				{
-					name = Main.Config.GetString(category, string.Format("NewPageName{0}", i + 1), ""),
-					shopItems = new Il2CppSystem.Collections.Generic.List<ShopItem>(),
+					ItemId = (ItemID)itemId,
+					prices = 100,   // 实际价格=这个数值*商店价格/100
 				};
-
-				foreach (string item in Main.Config.GetString(category, string.Format("NewPage{0}", i + 1), "").Split(','))
+				if (itemIdAndLevel.Length > 1 && int.TryParse(itemIdAndLevel[1], out int itemLv))
 				{
-					// itemId+itemLv
-					string[] itemIdAndLevel = item.Trim().Split('+');
-					if (!int.TryParse(itemIdAndLevel[0], out int itemId))
-						continue;
-
-					ShopItem shopItem = new ShopItem
-					{
-						ItemId = (ItemID)itemId,
-						prices = 100,   // 实际价格=这个数值*商店价格/100
-					};
-					if (itemIdAndLevel.Length > 1 && int.TryParse(itemIdAndLevel[1], out int itemLv))
-						shopItem.itemLv = itemLv;
-					else
-						shopItem.itemLv = 1;
-					page.shopItems.Add(shopItem);
-
-					Main.Log.LogDebug(string.Format("NewPage category:{0}, page:{1}, pageName:{2}, itemId:{3}, itemLv:{4}, prices:{5}",
-						category, __result.ShopCatalogPages.Count + i + 1, page.name, itemId, shopItem.itemLv, shopItem.prices
-					));
-				}
-
-				if (page.name.Length > 0 && page.shopItems.Count > 0)
-				{
-					__result.ShopCatalogPages.Add(page);
-					if (__result.ShopNpcTalks.Count > 0)
-						__result.ShopNpcTalks.Add(__result.ShopNpcTalks[0]);
+					shopItem.itemLv = itemLv;
 				}
 				else
 				{
+					shopItem.itemLv = 1;
+				}
+
+				__result.ShopCatalogPages[i].shopItems.Add(shopItem);
+
+				Main.Log.LogDebug($"AddItem category:{category}, page:{i + 1}, itemId:{itemId}, itemLv:{shopItem.itemLv}, prices:{shopItem.prices}");
+			}
+		}
+	}
+
+	static void HandleNewPage(string category, NpcShopTable __result)
+	{
+		for (int i = 0; i < 99; ++i)
+		{
+			ShopCatalogPage page = new ShopCatalogPage
+			{
+				name = Main.Config.GetString(category, $"NewPageName{i + 1}", ""),
+				shopItems = new Il2CppSystem.Collections.Generic.List<ShopItem>(),
+			};
+
+			foreach (string item in Main.Config.GetString(category, $"NewPage{i + 1}", "").Split(','))
+			{
+				string[] itemIdAndLevel = item.Trim().Split('+');
+				if (!int.TryParse(itemIdAndLevel[0], out int itemId))
+				{
+					continue;
+				}
+
+				ShopItem shopItem = new ShopItem
+				{
+					ItemId = (ItemID)itemId,
+					prices = 100,
+				};
+				if (itemIdAndLevel.Length > 1 && int.TryParse(itemIdAndLevel[1], out int itemLv))
+				{
+					shopItem.itemLv = itemLv;
+				}
+				else
+				{
+					shopItem.itemLv = 1;
+				}
+
+				page.shopItems.Add(shopItem);
+
+				Main.Log.LogDebug($"NewPage category:{category}, page:{__result.ShopCatalogPages.Count + i + 1}, pageName:{page.name}, itemId:{itemId}, itemLv:{shopItem.itemLv}, prices:{shopItem.prices}");
+			}
+
+			if (page.name.Length > 0 && page.shopItems.Count > 0)
+			{
+				__result.ShopCatalogPages.Add(page);
+				if (__result.ShopNpcTalks.Count > 0)
+				{
+					__result.ShopNpcTalks.Add(__result.ShopNpcTalks[0]);
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+
+	static void HandleRemoveItem(string category, NpcShopTable __result)
+	{
+		for (int i = 0; i < __result.ShopCatalogPages.Count; i++)
+		{
+			foreach (string item in Main.Config.GetString(category, $"RemoveItem{i + 1}", "").Split(','))
+			{
+				if (!int.TryParse(item.Trim(), out int itemId))
+				{
+					continue;
+				}
+
+				for (int i2 = 0; i2 < __result.ShopCatalogPages[i].shopItems.Count; ++i2)
+				{
+					if (__result.ShopCatalogPages[i].shopItems[i2].ItemId != (ItemID)itemId)
+					{
+						continue;
+					}
+
+					Main.Log.LogDebug($"RemoveItem category:{category}, page:{i + 1}, itemId:{itemId}");
+
+					__result.ShopCatalogPages[i].shopItems.RemoveAt(i2--);
+				}
+			}
+		}
+	}
+
+	static void HandleReplaceItem(string category, NpcShopTable __result)
+	{
+		for (int i = 0; i < __result.ShopCatalogPages.Count; i++)
+		{
+			foreach (string item in Main.Config.GetString(category, $"ReplaceItem{i + 1}", "").Split(','))
+			{
+				string[] itemIdToItemId = item.Trim().Split('=');
+				if (itemIdToItemId.Length < 2)
+				{
 					break;
 				}
-			}
-		}
 
-		// 删除物品
-		static void HandleRemoveItem(string category, NpcShopTable __result)
-		{
-			for (int i = 0; i < __result.ShopCatalogPages.Count; i++)
-			{
-				foreach (string item in Main.Config.GetString(category, string.Format("RemoveItem{0}", i + 1), "").Split(','))
+				string[] newItemIdAndLevel = itemIdToItemId[1].Split('+');
+
+				if (!int.TryParse(itemIdToItemId[0], out int oldItemId) ||
+					!int.TryParse(newItemIdAndLevel[0], out int newItemId))
 				{
-					if (!int.TryParse(item.Trim(), out int itemId))
-						continue;
+					continue;
+				}
 
-					for (int i2 = 0; i2 < __result.ShopCatalogPages[i].shopItems.Count; ++i2)
+				foreach (ShopItem shopItem in __result.ShopCatalogPages[i].shopItems)
+				{
+					if (shopItem.ItemId != (ItemID)oldItemId)
 					{
-						if (__result.ShopCatalogPages[i].shopItems[i2].ItemId != (ItemID)itemId)
-							continue;
-
-						Main.Log.LogDebug(string.Format("RemoveItem category:{0}, page:{1}, itemId:{2}",
-							category, i + 1, itemId
-						));
-
-						__result.ShopCatalogPages[i].shopItems.RemoveAt(i2--);
+						continue;
 					}
+
+					shopItem.ItemId = (ItemID)newItemId;
+					shopItem.conditions?.Clear();
+					shopItem.id = 0;
+					shopItem.storyLineFrag = GameFlagData.None;
+					if (newItemIdAndLevel.Length > 1 && int.TryParse(newItemIdAndLevel[1], out int itemLv))
+					{
+						shopItem.itemLv = itemLv;
+					}
+					else
+					{
+						shopItem.itemLv = 1;
+					}
+
+					shopItem.prices = 100;
+
+					Main.Log.LogDebug($"ReplaceItem category:{category}, page:{i + 1}, oldItemId:{oldItemId}, newItemId:{newItemId}, itemLv:{shopItem.itemLv}, prices:{shopItem.prices}");
 				}
 			}
 		}
-
-		static int CalcPrices(ItemID itemId, int itemLv = 1)
+	}
+	static void Postfix(UIShopController __instance)
+	{
+		if (__instance.ShopMenuType != ShopMenuType.ITEM)
 		{
-			ItemDataTable data = ItemDataTable.GetDataTable(itemId);
-			Main.Log.LogDebug(string.Format("itemid:{3}, itemlv:{4}, item prices: shop:{0}, sell:{1}, calc:{2}",
-				data.ShopPrice, data.SellPrice, data.GetShopPrice(itemLv), (int)itemId, itemLv
-			));
+			return;
+		}
 
-			//return data.GetShopPrice(itemLv);
-			return data.ShopPrice;
+		string category = __instance.shopType.ToString();
+		HandleAddItem(category, __instance.NpcShopTable);
+		HandleNewPage(category, __instance.NpcShopTable);
+		HandleReplaceItem(category, __instance.NpcShopTable);
+		HandleRemoveItem(category, __instance.NpcShopTable);
+
+		__instance.pageMax = __instance.NpcShopTable.ShopCatalogPages.Count;
+		__instance.ChangePagesGroup.SetActive(__instance.NpcShopTable.ShopCatalogPages.Count > 1);
+
+		float rate = Main.Config.GetFloat(category, "PriceMultiplier", -1.0f);
+		if (rate >= 0.0f)
+		{
+			__instance.UIShopControl.discountRate = rate;
+		}
+
+		Main.Log.LogDebug($"SetShopTable shopType:{__instance.shopType}, shopPages:{__instance.NpcShopTable.ShopCatalogPages.Count}, pageMax:{__instance.pageMax}, discountRate:{__instance.UIShopControl.discountRate}");
+
+		foreach (ShopCatalogPage page in __instance.NpcShopTable.ShopCatalogPages)
+		{
+			Main.Log.LogDebug($"Page:{page.name}, itemCount:{page.shopItems.Count}");
 		}
 	}
 }

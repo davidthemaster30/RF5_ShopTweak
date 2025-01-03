@@ -1,38 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
+
 using BepInEx;
-using HarmonyLib;
-using BepInEx.IL2CPP;
 using BepInEx.Logging;
-using System.Reflection;
-using System.IO;
-using RF5SHOP;
+using BepInEx.Unity.IL2CPP;
+using HarmonyLib;
 
-namespace RF5_ShopTweak
+namespace RF5_ShopTweak;
+
+[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+[BepInProcess(GAME_PROCESS)]
+public class Main : BasePlugin
 {
-	[BepInPlugin(GUID, NAME, VERSION)]
-	[BepInProcess(GAME_PROCESS)]
-	public class Main : BasePlugin
+	public static new IniParser Config;
+
+	static public new ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource("ShopTweak");
+	private const string GAME_PROCESS = "Rune Factory 5.exe";
+	private static string FILENAME = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" + MyPluginInfo.PLUGIN_NAME + ".ini";
+
+	public override void Load()
 	{
-		#region PluginInfo
-		private const string GUID = "A465AF6E-9709-261F-EDCA-7E777C4AD8C1";
-		private const string NAME = "RF5_ShopTweak";
-		private const string VERSION = "1.2.0";
-		private const string GAME_PROCESS = "Rune Factory 5.exe";
-		#endregion
+		Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION} is loading!");
 
-		static public new ManualLogSource Log;
-		private static string FILENAME = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" + NAME + ".ini";
-		public static new IniParser Config;
-
-		public override void Load()
-		{
-			Log = base.Log;
-			Config = new IniParser(FILENAME);
-			new Harmony(GUID).PatchAll();
-		}
+		Log = base.Log;
+		Config = new IniParser(FILENAME);
+		new Harmony(MyPluginInfo.PLUGIN_GUID).PatchAll();
+		Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION} is loaded!");
 	}
 }
