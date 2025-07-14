@@ -4,3 +4,6 @@ rm -rf bin
 dotnet build RF5_ShopTweak.csproj -f net6.0 -c Release
 
 zip -j 'RF5_ShopTweak_v1.3.0.zip' './bin/Release/net6.0/RF5_ShopTweak.dll' './bin/Release/net6.0/RF5_ShopTweak.ini'
+
+cp './bin/Release/net6.0/RF5_ShopTweak.dll' '/data/Steam/steamapps/common/Rune Factory 5/BepInEx/plugins'
+cp './bin/Release/net6.0/RF5_ShopTweak.ini' '/data/Steam/steamapps/common/Rune Factory 5/BepInEx/plugins'

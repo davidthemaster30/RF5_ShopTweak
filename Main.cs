@@ -9,9 +9,9 @@ namespace RF5_ShopTweak;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 [BepInProcess(GAME_PROCESS)]
-public class Main : BasePlugin
+public class ShopTweakPlugin : BasePlugin
 {
-	public static new IniParser Config;
+	internal static List<CustomShop> Shops { get; private set; } = new();
 
 	static public new ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource("ShopTweak");
 	private const string GAME_PROCESS = "Rune Factory 5.exe";
@@ -21,8 +21,30 @@ public class Main : BasePlugin
 	{
 		Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION} is loading!");
 
-		Log = base.Log;
-		Config = new IniParser(FILENAME);
+		Shops = IniParser.ParseFile(FILENAME);
+
+		foreach (var shop in Shops)
+		{
+			Log.LogInfo($"Shop {shop.ShopType.ToString()}");
+
+			foreach (var page in shop.Pages)
+			{
+				Log.LogInfo($"Page {page.Name}");
+				foreach (var item in page.ItemsToAdd)
+				{
+					Log.LogInfo($"ItemsToAdd {item.Id}:{item.Level}");
+				}
+				foreach (var item in page.ItemsToReplace)
+				{
+					Log.LogInfo($"ItemsToReplace {item.Id}:{item.Level}");
+				}
+				foreach (var item in page.ItemsToRemove)
+				{
+					Log.LogInfo($"ItemsToRemove {item}");
+				}
+			}
+		}
+
 		new Harmony(MyPluginInfo.PLUGIN_GUID).PatchAll();
 		Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION} is loaded!");
 	}
