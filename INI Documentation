@@ -1,0 +1,83 @@
+Shop type
+[VarietyShop]
+[BlacksmithShop]
+[Restaurent]
+[CrystalShop]
+[Hospital]
+[FlowerShop]
+[VarietyShop2]
+[CrystalShop2]
+[BlacksmithShop2]
+---
+Add items to existing pages
+[BlacksmithShop2]
+AddItem1=ItemID, ...
+The number 1 in AddItem1 indicates the page number
+Allows setting the item level using the ItemID+Lv form, example:
+[BlacksmithShop2]
+AddItem1=1502+2
+Indicates the addition of Lumber Lv2 to the Blacksmith Ore Shop
+---
+Replace existing items
+[BlacksmithShop2]
+ReplaceItem1=OldItemID=NewItemID, ...
+The number 1 in ReplaceItem1 indicates the page number
+Allow setting new item levels using the NewItemID+Lv form, example:
+[BlacksmithShop2]
+ReplaceItem1=2152=2171+6
+Replace Iron with Tenfold Steel Lv6 on page 1 of the Blacksmith Shop Ore Shop
+---
+Remove Existing Items
+[BlacksmithShop2]
+RemoveItem1=ItemID, ...
+The number 1 in RemoveItem1 indicates the page number
+example:
+[BlacksmithShop2]
+RemoveItem1=2152
+Remove Iron item from Blacksmith Shop Ore Shop
+---
+Add new page
+[BlacksmithShop2]
+NewPageName1=Title
+NewPage1=ItemID, ...
+The number 1 in NewPageName1 and NewPage1 indicates the order of the pages appended to the end
+NewPageName1 can only use the text predefined by UITextDic.DICID, other text will be displayed blank
+Allows setting the item level using the ItemID+Lv form, example:
+[BlacksmithShop2]
+NewPageName1=SHOPCAT_Blacksmith_Stone_00
+NewPage1=1502+4
+Indicates the addition of Lumber Lv4 to the Blacksmith Ore Shop
+Add a new page to the Blacksmith Shop Ore Shop, containing Lumber Lv5
+---
+UITextDic.DICID
+public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_00 = 5013;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_01 = 5014;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_02 = 5015;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_03 = 5016;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_04 = 5017;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Acce_00 = 5018;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Acce_01 = 5019;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Arm_00 = 5020;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Arm_01 = 5021;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Tool_00 = 5022;
+public const UITextDic.DICID SHOPCAT_BlackSmith_Tool_01 = 5023;
+public const UITextDic.DICID SHOPCAT_Blacksmith_Stone_00 = 5024;
+public const UITextDic.DICID SHOPCAT_Variety_Seed_00 = 5025;
+public const UITextDic.DICID SHOPCAT_Variety_Seed_01 = 5026;
+public const UITextDic.DICID SHOPCAT_Variety_Dekiai_00 = 5027;
+public const UITextDic.DICID SHOPCAT_Variety_Vesi_00 = 5028;
+public const UITextDic.DICID SHOPCAT_Variety_Fish_00 = 5029;
+public const UITextDic.DICID SHOPCAT_Restaurent_Cook_00 = 5030;
+public const UITextDic.DICID SHOPCAT_CrystalShop_Magic_00 = 5031;
+public const UITextDic.DICID SHOPCAT_CrystalShop_Magic_01 = 5032;
+public const UITextDic.DICID SHOPCAT_CrystalShop_RA_00 = 5033;
+public const UITextDic.DICID SHOPCAT_CrystalShop_RA_01 = 5034;
+public const UITextDic.DICID SHOPCAT_CrystalShop_Jem_00 = 5035;
+public const UITextDic.DICID SHOPCAT_CrystalShop_Koueki_00 = 5036;
+public const UITextDic.DICID SHOPCAT_Hospital_Drag_00 = 5037;
+public const UITextDic.DICID SHOPCAT_FlowerShop_Seed_00 = 5038;
+public const UITextDic.DICID SHOPCAT_FlowerShop_Eiyouzai_00 = 5039;
+public const UITextDic.DICID SHOPCAT_FlowerShop_Flower_00 = 5040;
+public const UITextDic.DICID SHOPCAT_Builder_00 = 5041;
+public const UITextDic.DICID SHOPCAT_Furniture_00 = 5042;
+public const UITextDic.DICID SHOPCAT_DUMMY = 5043;
