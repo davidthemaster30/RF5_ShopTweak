@@ -5,7 +5,7 @@
     <Description>RF5_ShopTweak</Description>
     <Product>RF5_ShopTweak</Product>
     <Company>https://github.com/davidthemaster30/RF5_ShopTweak</Company>
-    <Version>1.3.0</Version>
+    <Version>2.0.0</Version>
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RootNamespace>RF5_ShopTweak</RootNamespace>
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.738" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.785" IncludeAssets="compile" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
   </ItemGroup>
 
