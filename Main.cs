@@ -12,8 +12,7 @@ namespace RF5_ShopTweak;
 public class ShopTweakPlugin : BasePlugin
 {
 	internal static List<CustomShop> Shops { get; private set; } = new();
-
-	static public new ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource("ShopTweak");
+	internal static new ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource("ShopTweak");
 	private const string GAME_PROCESS = "Rune Factory 5.exe";
 	private static string FILENAME = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" + MyPluginInfo.PLUGIN_NAME + ".ini";
 
@@ -25,19 +24,14 @@ public class ShopTweakPlugin : BasePlugin
 
 		foreach (var shop in Shops)
 		{
-			Log.LogInfo($"Shop {shop.ShopType.ToString()}");
-
-			foreach (var page in shop.Pages)
-			{
-				Log.LogInfo($"Page {page.Name}");
-				foreach (var item in page.Items)
-				{
-					Log.LogInfo($"ItemsToAdd {item.Id}:{item.Level}");
-				}
-			}
+			Log.LogInfo(shop.ToString());
 		}
 
 		new Harmony(MyPluginInfo.PLUGIN_GUID).PatchAll();
+
+		//Harmony.CreateAndPatchAll(typeof(ShopDataTableHandler));
+		Harmony.CreateAndPatchAll(typeof(ShopDataTableChangePage));
+		//Harmony.CreateAndPatchAll(typeof(UIShopControllerChangePage));
 		Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION} is loaded!");
 	}
 }

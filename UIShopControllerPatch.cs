@@ -1,111 +1,111 @@
-﻿using Define;
-using HarmonyLib;
+﻿using HarmonyLib;
 using RF5SHOP;
+using Define;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace RF5_ShopTweak;
 
-[HarmonyPatch(typeof(UIShopController), nameof(UIShopController.SetShopTable))]
-public class UIShopControllerChangePage
+[HarmonyPatch]
+internal class ShopDataTableChangePage
 {
-	static int CalcPrices(ItemID itemId, int itemLv = 1)
+	[HarmonyPatch(typeof(ShopDataTable), nameof(ShopDataTable.GetTable))]
+	[HarmonyPostfix]
+	static void ApplyShopTweaks(NpcShopType type, ref NpcShopTable __result)
 	{
-		ItemDataTable data = ItemDataTable.GetDataTable(itemId);
-		ShopTweakPlugin.Log.LogDebug($"itemid:{(int)itemId}, itemlv:{itemLv}, item prices: shop:{data.ShopPrice}, sell:{data.SellPrice}, calc:{data.GetShopPrice(itemLv)}");
-
-		return data.ShopPrice;
-	}
-
-	static void HandleShop(CustomShop shop, UIShopController __instance)
-	{
-		NpcShopTable __result = __instance._NpcShopTable;
-		ShopTweakPlugin.Log.LogInfo($"HandleNewPage {shop.ShopType}");
-
-		ShopTweakPlugin.Log.LogInfo($"Shop {shop.ShopType.ToString()}");
-
-		foreach (var page in shop.Pages)
-		//foreach (string item in ShopTweakPlugin.Config.GetString(category, $"NewPage{i}", "").Split(','))
-		{
-			ShopCatalogPage catalogPage = new ShopCatalogPage
-			{
-				name = page.Name,
-				shopItems = new Il2CppSystem.Collections.Generic.List<ShopItem>(),
-			};
-			ShopTweakPlugin.Log.LogDebug($"NewPage {page.Name} ShopCatalogPage");
-
-			foreach (var item in page.Items)
-			{
-				ShopTweakPlugin.Log.LogDebug($"  Item {item.Id}:{item.Level}");
-
-				ShopItem shopItem = new ShopItem
-				{
-					ItemId = item.Id,
-					itemLv = item.Level,
-					prices = 100,
-				};
-
-				catalogPage.shopItems.Add(shopItem);
-
-				ShopTweakPlugin.Log.LogDebug($"  NewPage pageName:{catalogPage.name}, itemId:{shopItem.ItemId}, itemLv:{shopItem.itemLv}, prices:{shopItem.prices}");
-			}
-
-			if (catalogPage.name.Length > 0 && catalogPage.shopItems.Count > 0)
-			{
-				__result.ShopCatalogPages.Add(catalogPage);
-				if (__result.ShopNpcTalks.Count > 0)
-				{
-					__result.ShopNpcTalks.Add(__result.ShopNpcTalks[0]);
-				}
-				ShopTweakPlugin.Log.LogDebug($"  NewPage page:{__result.ShopCatalogPages.Count + 1}, pageName:{catalogPage.name}");
-			}
-			else
-			{
-				ShopTweakPlugin.Log.LogWarning("  NewPage had no name or items category");
-			}
-		}
-
-
-		ShopTweakPlugin.Log.LogInfo($"HandleNewPage {shop.ShopType} End");
-
-		ShopTweakPlugin.Log.LogDebug($"1SetShopTable shopType:{__instance.shopType}, shopPages:{__instance.NpcShopTable.ShopCatalogPages.Count}, pageMax:{__instance.pageMax}, discountRate:{__instance.UIShopControl.discountRate}");
-
-		foreach (ShopCatalogPage page in __instance.NpcShopTable.ShopCatalogPages)
-		{
-			ShopTweakPlugin.Log.LogDebug($"1Page:{page.name}, itemCount:{page.shopItems.Count}");
-		}
-
-		//__instance.pageMax = __instance.NpcShopTable.ShopCatalogPages.Count;
-		//__instance.ChangePagesGroup.SetActive(true);
-
-		float rate = shop.PriceMultiplier;
-		if (rate >= 0.0f)
-		{
-			__instance.UIShopControl.discountRate = rate;
-		}
-
-		ShopTweakPlugin.Log.LogDebug($"2SetShopTable shopType:{__instance.shopType}, shopPages:{__instance.NpcShopTable.ShopCatalogPages.Count}, pageMax:{__instance.pageMax}, discountRate:{__instance.UIShopControl.discountRate}");
-
-		foreach (ShopCatalogPage page in __instance.NpcShopTable.ShopCatalogPages)
-		{
-			ShopTweakPlugin.Log.LogDebug($"2Page:{page.name}, itemCount:{page.shopItems.Count}");
-		}
-	}
-
-	static void Postfix(UIShopController __instance)
-	{
-		if (__instance.ShopMenuType != ShopMenuType.ITEM)
+		ShopTweakPlugin.Log.LogDebug($"ShopDataTable.GetTable type {type}, __result {__result}");
+		if (__result is null)
 		{
 			return;
-		}
+		} //UITextDic.DICID SHOPCAT_CrystalShop_Koueki_00
 
-		NpcShopType category = __instance.shopType;
-		var shop = ShopTweakPlugin.Shops.FirstOrDefault(x => x.ShopType == category);
-		if (shop is null || shop.Pages.Count == 0)
+		ShopTweakPlugin.Log.LogDebug($"ApplyShopTweaks Start shopType:{type}, shopPages:{__result.ShopCatalogPages.Count}");
+
+		var shop = ShopTweakPlugin.Shops.FirstOrDefault(x => x.ShopType == type);
+		shop?.ShopTweaks.ApplyAll(ref __result);
+
+		ShopTweakPlugin.Log.LogDebug($"ApplyShopTweaks End shopType:{type}, shopPages:{__result.ShopCatalogPages.Count}");
+
+		foreach (ShopCatalogPage page in __result.ShopCatalogPages)
 		{
-			return;
+			ShopTweakPlugin.Log.LogDebug($"ApplyShopTweaks Page Debug:{page.name}, itemCount:{page.shopItems.Count}");
 		}
-		ShopTweakPlugin.Log.LogDebug($"Postfix SetShopTable shopType:{__instance.shopType}, shopPages:{__instance.NpcShopTable.ShopCatalogPages.Count}, pageMax:{__instance.pageMax}, discountRate:{__instance.UIShopControl.discountRate}");
-
-
-		HandleShop(shop, __instance);
 	}
 }
+
+[HarmonyPatch]
+internal static class ShopDataTableHandler
+{
+	internal static NpcShopType? currentShopType;
+	//
+
+	// [HarmonyPatch(typeof(UIShopController), nameof(UIShopController.OpenShop))]
+	// [HarmonyPostfix]
+	// internal static void SaveCurrentShop(UIShopController __instance)
+	// {
+	// 	ShopTweakPlugin.Log.LogDebug($"UIShopController.OpenShop");
+	// 	if (__instance is not null && __instance.ShopMenuType != ShopMenuType.ITEM)
+	// 	{
+	// 		currentShopType = __instance.shopType;
+	// 		ShopTweakPlugin.Log.LogDebug($"SaveCurrentShop currentShopType:{currentShopType}");
+	// 	}
+	// }
+
+	// [HarmonyPatch(typeof(UIShopController), nameof(UIShopController.OpenShop), new Type[] { typeof(NPCID), typeof(NpcShopType) , typeof(UnityAction) })]
+	// [HarmonyPostfix]
+	// internal static void SaveCurrentShop(NPCID _npcId, NpcShopType npcShopType, UnityAction EndCallback, UIShopController __instance)
+	// {
+	// 	ShopTweakPlugin.Log.LogDebug($"UIShopController.OpenShop, _npcId {_npcId}, npcShopType {npcShopType}");
+	// 	if (__instance is not null && __instance.ShopMenuType != ShopMenuType.ITEM)
+	// 	{
+	// 		currentShopType = __instance.shopType;
+	// 		ShopTweakPlugin.Log.LogDebug($"SaveCurrentShop currentShopType:{currentShopType}");
+	// 	}
+	// }
+
+	// [HarmonyPatch(typeof(UIShopController), nameof(UIShopController.CloseShop))]
+	// [HarmonyPostfix]
+	// internal static void RemoveCurrentShop(UIShopController __instance)
+	// {
+	// 	ShopTweakPlugin.Log.LogDebug($"UIShopController.CloseShop");
+	// 	if (currentShopType is not null)
+	// 	{
+	// 		ShopTweakPlugin.Log.LogDebug($"RemoveCurrentShop currentShopType:{currentShopType}");
+	// 		currentShopType = null;
+	// 	}
+	// }
+
+	[HarmonyPatch(typeof(UIShopController), nameof(UIShopController.SetShopTable))]
+	[HarmonyPostfix]
+	internal static void UIShopControllerTweaks(UIShopController __instance)
+	{
+		ShopTweakPlugin.Log.LogDebug($"UIShopController.SetShopTable");
+		if (currentShopType is null || __instance is null)
+		{
+			return;
+		}
+
+		__instance.pageMax = __instance.NpcShopTable.ShopCatalogPages.Count;
+		__instance.ChangePagesGroup.SetActive(__instance.NpcShopTable.ShopCatalogPages.Count > 1);
+
+		var shop = ShopTweakPlugin.Shops.FirstOrDefault(x => x.ShopType == ShopDataTableHandler.currentShopType);
+
+		if (shop?.PriceMultiplier >= 0.0f)
+		{
+			__instance.UIShopControl.discountRate = shop.PriceMultiplier;
+		}
+		ShopTweakPlugin.Log.LogDebug($"UIShopControllerTweaks currentShopType:{currentShopType}");
+	}
+}
+
+// [HarmonyPatch]
+// [HarmonyPatch(typeof(UIShopController), nameof(UIShopController.SetShopTable))]
+// public class UIShopControllerChangePage
+// {
+// 	static void Postfix(UIShopController __instance)
+// 	{
+// 		ShopTweakPlugin.Log.LogDebug($"OLD UIShopController.SetShopTable");
+// 	}
+
+// }
+

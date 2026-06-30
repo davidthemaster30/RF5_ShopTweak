@@ -1,15 +1,98 @@
-﻿using RF5SHOP;
+﻿using System.Text.RegularExpressions;
+using RF5SHOP;
 
 namespace RF5_ShopTweak;
 #pragma warning disable CA1307 // Specify StringComparison for correctness
 #pragma warning disable CA1310 // Specify StringComparison for correctness
+#pragma warning disable S4058 // Specify StringComparison for correctness
 internal static class IniParser
 {
+	public static bool IsShopName(this string line)
+	{
+		return line.StartsWith('[') && line.EndsWith(']');
+	}
+
+	public static string GetShopName(this string line)
+	{
+		return line[1..^1];
+	}
+
+	public static int GetPageNumber(this string value)
+	{
+		var extractedInt = Regex.Match(value, @"\d+").Value;
+
+		return int.Parse(extractedInt);
+	}
+
+	public static float GetPriceMultiplier(this string value)
+	{
+		if (float.TryParse(value, out float multiplier))
+		{
+			return multiplier;
+		}
+		else
+		{
+			ShopTweakPlugin.Log.LogWarning($"Bad PriceMultiplier in ini file : {value}");
+			return 1;
+		}
+	}
+
+	public static NpcShopType ConvertOrThrow(this string shopName)
+	{
+		if (!Enum.TryParse<NpcShopType>(shopName, out var shopType))
+		{
+			throw new Exception($"Invalid NpcShopType {shopName}");
+		}
+
+		return shopType;
+	}
+
+	private record State
+	{
+		internal List<CustomShop> shops = [];
+		internal NpcShopType? currentNpcShopType;
+		internal DeferredListProcessor currentDeferredList = new();
+		internal float currentPriceMultiplier;
+
+		internal State()
+		{
+			Reset();
+		}
+
+		internal void Reset()
+		{
+			currentNpcShopType = null;
+			currentDeferredList = new();
+			currentPriceMultiplier = -1.0f;
+		}
+
+		internal void HandleCurrentList()
+		{
+			if (currentNpcShopType is not null)
+			{
+				if (!currentDeferredList.IsEmpty())
+				{
+					shops.Add(new CustomShop
+					{
+						PriceMultiplier = currentPriceMultiplier,
+						ShopTweaks = currentDeferredList,
+						ShopType = (NpcShopType)currentNpcShopType
+					});
+					Reset();
+				}
+				else
+				{
+					ShopTweakPlugin.Log.LogDebug($"currentNpcShopType [{currentNpcShopType}] has no actions.");
+				}
+			}
+		}
+	}
+
 	internal static List<CustomShop> ParseFile(string fileName)
 	{
-		List<CustomShop> shops = [];
-		CustomShop? currentShop = null;
-		CustomShopPageAdd? currentPage = null;
+		var myState = new State();
+		
+		string currentNewPageName = string.Empty;
 
 		foreach (var line in File.ReadLines(fileName))
 		{
@@ -20,33 +103,25 @@ internal static class IniParser
 			{
 				continue;
 			}
-
+			ShopTweakPlugin.Log.LogDebug($"trimmedLine : {trimmedLine}");
 			// Handle sections (shops).
-			if (trimmedLine.StartsWith('[') && trimmedLine.EndsWith(']'))
+			if (trimmedLine.IsShopName())
 			{
-				var shopName = trimmedLine[1..^1]; // Remove brackets.
-				if (!Enum.TryParse<NpcShopType>(shopName, out var shopType))
-				{
-					throw new Exception($"Invalid NpcShopType {trimmedLine}");
-				}
+				myState.HandleCurrentList();
 
-				if (currentShop is not null)
-				{
-					shops.Add(currentShop);
-					currentPage = null;
-				}
-
-				currentShop = new CustomShop { ShopType = shopType };
+				var shopName = trimmedLine.GetShopName();
+				myState.currentNpcShopType = shopName.ConvertOrThrow();
 				continue;
 			}
 
-			if (currentShop is null)
+			if (myState.currentNpcShopType is null)
 			{
-				throw new Exception($"Invalid ini format. Missing shop type before line: {trimmedLine}");
+				ShopTweakPlugin.Log.LogDebug($"Invalid ini format. Missing shop type before line: {trimmedLine}");
+				continue;
 			}
 
 			// Handle key-value pairs.
-			var delimiterIndex = trimmedLine.IndexOf('=');
+			var delimiterIndex = trimmedLine.IndexOf('='); //Need first IndexOf for the ReplaceAction
 			if (delimiterIndex <= -1)
 			{
 				continue;
@@ -55,37 +130,41 @@ internal static class IniParser
 			var key = trimmedLine[..delimiterIndex].Trim();
 			var value = trimmedLine[(delimiterIndex + 1)..].Trim();
 
-
 			switch (key)
 			{
 				case string k when k.StartsWith("NewPageName"):
-					if (currentPage is not null)
-					{
-						currentShop.Pages.Add(currentPage);
-					}
-
-					currentPage = new CustomShopPageAdd { Name = value };
+					currentNewPageName = value;
 					break;
 
 				case string k when k.StartsWith("NewPage"):
-					if (currentPage is not CustomShopPageAdd)
+					if (string.IsNullOrEmpty(currentNewPageName))
 					{
-						throw new Exception($"Invalid ini format. Missing page name before line: {trimmedLine}");
+						ShopTweakPlugin.Log.LogError($"Invalid ini format. Missing page name before line: {trimmedLine}");
+						currentNewPageName = "Unknown";
 					}
 
-					var newpageItems = ParseItems(value);
-					(currentPage as CustomShopPageAdd)?.Items.AddRange(newpageItems);
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeAddPage(value, currentNewPageName));
+					currentNewPageName = string.Empty;
+					break;
+
+				case string k when k.StartsWith("AddItem"):
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeAddItems(value, GetPageNumber(key)));
+					currentNewPageName = string.Empty;
+					break;
+
+				case string k when k.StartsWith("RemoveItem"):
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeRemoveItems(value, GetPageNumber(key)));
+					currentNewPageName = string.Empty;
+					break;
+
+				case string k when k.StartsWith("ReplaceItem"):
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeReplaceItems(value, GetPageNumber(key)));
+					currentNewPageName = string.Empty;
 					break;
 
 				case "PriceMultiplier":
-					if (float.TryParse(value, out float multiplier))
-					{
-						currentShop.PriceMultiplier = multiplier;
-					}
-					else
-					{
-						ShopTweakPlugin.Log.LogWarning($"Bad PriceMultiplier in ini file : {trimmedLine}");
-					}
+					myState.currentPriceMultiplier = value.GetPriceMultiplier();
+					currentNewPageName = string.Empty;
 					break;
 
 				default:
@@ -95,39 +174,13 @@ internal static class IniParser
 
 		}
 
-		if (currentShop is not null)
-		{
-			shops.Add(currentShop);
-		}
+		myState.HandleCurrentList();
 
-		return shops;
+		return myState.shops;
 	}
 
-	private static List<CustomShopItem> ParseItems(string value)
-	{
-		var items = new List<CustomShopItem>();
 
-		foreach (var itemString in value.Split(',', StringSplitOptions.RemoveEmptyEntries))
-		{
-			var parts = itemString.Split('+');
-
-			if (!int.TryParse(parts[0], out int id))
-			{
-				ShopTweakPlugin.Log.LogWarning($"Invalid item ID specified : {itemString}");
-				continue;
-			}
-
-			if (parts.Length == 2 && int.TryParse(parts[1], out int level))
-			{
-				items.Add(new CustomShopItem { Id = (ItemID)id, Level = level });
-				continue;
-			}
-
-			items.Add(new CustomShopItem { Id = (ItemID)id });
-		}
-
-		return items;
-	}
 }
 #pragma warning restore CA1307 // Specify StringComparison for correctness
 #pragma warning restore CA1310 // Specify StringComparison for correctness
+#pragma warning restore S4058 // Specify StringComparison for correctness
