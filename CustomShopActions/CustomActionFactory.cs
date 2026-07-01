@@ -32,7 +32,7 @@ internal static class CustomActionFactory
         List<ICustomShopPageAction> actions = new();
         foreach (var parsedItem in ParseShopItems(value))
         {
-            actions.Add(new CustomShopReplaceItemAction(pageNumber, parsedItem.ReplacedItemId, parsedItem.ItemId, parsedItem.itemLv));
+            actions.Add(new CustomShopReplaceItemAction(pageNumber, parsedItem.ReplacedItemId, parsedItem.ItemId, parsedItem.itemLv, parsedItem.Prices));
         }
         ShopTweakPlugin.Log.LogDebug($"CustomActionFactory.MakeReplaceItems");
         return actions;
@@ -43,7 +43,7 @@ internal static class CustomActionFactory
         List<ICustomShopPageAction> actions = new();
         foreach (var parsedItem in ParseShopItems(value))
         {
-            actions.Add(new CustomShopAddItemAction(pageNumber, parsedItem.ItemId, parsedItem.itemLv));
+            actions.Add(new CustomShopAddItemAction(pageNumber, parsedItem.ItemId, parsedItem.itemLv, parsedItem.Prices));
         }
         ShopTweakPlugin.Log.LogDebug($"CustomActionFactory.MakeAddItems");
         return actions;
@@ -53,7 +53,7 @@ internal static class CustomActionFactory
     {
 
         internal ItemID ItemId { get; init; }
-        internal int itemLv { get; init; }
+        internal int itemLv { get; init; } = 1;
         internal ItemID ReplacedItemId { get; init; }
         internal int Prices { get; init; } = 100;
         public static ShopItem ToShopItem(ParsedItem item)
@@ -113,8 +113,6 @@ internal static class CustomActionFactory
                     ShopTweakPlugin.Log.LogWarning($"Couldn't parse prices : {itemString}");
                 }
             }
-
-
 
             parsedItems.Add(new ParsedItem
             {

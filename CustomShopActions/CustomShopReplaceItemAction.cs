@@ -13,7 +13,7 @@ internal class CustomShopReplaceItemAction : ICustomShopPageAction
         return $"CustomShopReplaceItemAction Replace {_oldItem}({(int)_oldItem}) with {_oldItem}({(int)_oldItem})+{_shopItem.itemLv} on page {_pageNumber}";
     }
 
-    internal CustomShopReplaceItemAction(int pageNumber, ItemID oldItem, ItemID newItem, int itemLevel = 1)
+    internal CustomShopReplaceItemAction(int pageNumber, ItemID oldItem, ItemID newItem, int itemLevel = 1, int price = 100)
     {
         _pageNumber = pageNumber;
         _oldItem = oldItem;
@@ -21,7 +21,7 @@ internal class CustomShopReplaceItemAction : ICustomShopPageAction
         _shopItem = new ShopItem
         {
             ItemId = newItem,
-            prices = 100,   // Actual price = this value * store price / 100
+            prices = price,
             itemLv = itemLevel,
             id = 0,
             storyLineFrag = GameFlagData.None

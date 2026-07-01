@@ -11,14 +11,14 @@ internal class CustomShopAddItemAction : ICustomShopPageAction
         return $"CustomShopAddItemAction Add {_shopItem.ItemId}({(int)_shopItem.ItemId})+{_shopItem.itemLv} on page {_pageNumber}";
     }
 
-    internal CustomShopAddItemAction(int pageNumber, ItemID itemId, int itemLevel = 1)
+    internal CustomShopAddItemAction(int pageNumber, ItemID itemId, int itemLevel = 1, int price = 100)
     {
         _pageNumber = pageNumber;
 
         _shopItem = new ShopItem
         {
             ItemId = itemId,
-            prices = 100,   // Actual price = this value * store price / 100
+            prices = price,
             itemLv = itemLevel
         };
     }
