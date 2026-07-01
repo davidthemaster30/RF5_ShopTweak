@@ -1,1174 +1,1212 @@
-1卷心菜 Cabbage
-2卷心菜王 King Cabbage
-3樱芜菁 Pink Turnip
-4大樱芜菁 Colossal Pink Turnip
-5少女蜜瓜 Pink Melon
-6少女蜜瓜王 Conqueror Melon
-7洋葱 Onion
-8超级洋葱 Ultra Onion
-9南瓜 Pumpkin
-10惊悚南瓜 Doom Pumpkin
-11黄瓜 Cucumber
-12凯撒黄瓜 Kaiser Cucumber
-13玉米 Corn
-14大玉米 Gigant Corn
-15番茄 Tomato
-16大番茄 Titan Tomato
-17茄子 Eggplant
-18大茄子 Emperor Eggplant
-19番薯 Yam
-20番薯王 Lordly Yam
-21马铃薯 Potato
-22超级马铃薯 Princely Potato
-23胡萝卜 Carrot
-24帝王胡萝卜 Royal Carrot
-25青椒 Green Pepper
-26大青椒 Green Pepper Rex
-27菠菜 Spinach
-28大菠菜 Sovereign Spinach
-29芜菁 Turnip
-30大芜菁 Tyrant Turnip
-31白萝卜 Radish
-32白萝卜王 Noble Radish
-33葱 Leek
-34巨葱 Legendary Leek
-35白菜 Bok Choy
-36大白菜 Boss Bok Choy
-37火热果实 Hot-Hot Fruit
-38火热果实王 Giant Hot-Hot Fruit
-39金卷心菜 Golden Cabbage
-40金卷心菜王 Golden King Cabbage
-41金南瓜 Golden Pumpkin
-42惊悚金南瓜 Golden Doom Pumpkin
-43金马铃薯 Golden Potato
-44超级金马铃薯 Golden Princely Potato
-45金芜菁 Golden Turnip
-46大金芜菁 Golden Tyrant Turnip
-47竹笋 Bamboo Shoot
-48蘑菇 Mushroom
-49蘑菇 Mushroom
-50蘑菇 Mushroom
-51蘑菇 Mushroom
-52蘑菇 Mushroom
-53蘑菇 Mushroom
-54极品蘑菇 Monarch Mushroom
-56流星玉米 Starfall Corn
-57流星南瓜 Starfall Pumpkin
-58流星马铃薯 Starfall Potato
-55流星草莓 Starfall Strawberry
-100葡萄 Grape
-101苹果 Apple
-102无力苹果 Mealy Apple
-103橘子 Orange
-104草莓 Strawberry
-105甘草莓 Sultan Strawberry
-106菠萝 Pineapple
-107菠萝王 King Pineapple
-150托伊药草 Toyherb
-151超级托伊药草 Ultra Toyherb
-152月落草 Moondrop Flower
-153大月落草 Ultra Moondrop
-154粉红猫 Pink Cat
-155粉红猫王 King Pink Cat
-156魅蓝草 Charm Blue
-157大魅蓝草 Great Charm Blue
-158樱草 Cherry Grass
-159樱草王 King Cherry Grass
-160灯草 Lamp Grass
-161凯撒灯草 Kaiser Lamp Grass
-162青水晶 Blue Crystal Flower
-163大青水晶 Big Blue Crystal Flower
-164金刚花 Emery Flower
-165大金刚花 Great Emery Flower
-166铁千轮 Ironleaf
-167超级铁千轮 Ultra Ironleaf
-168四叶草 4-Leaf Clover
-169大四叶草 Great 4-Leaf Clover
-170原之焰火 Fireflower
-171大原之焰火 Big Fireflower
-172绿水晶 Green Crystal Flower
-173大绿水晶 Big Green Crystal Flower
-174树形草 Noel Grass
-175大树形草 Large Noel Grass
-176红叶花 Autumn Grass
-177大红叶花 Great Autumn Grass
-178剧毒蒲公英 Pom-Pom Grass 
-179剧毒蒲公英王 King Pom-Pom Grass
-180红水晶 Red Crystal Flower
-181大红水晶 Big Red Crystal Flower
-182白水晶 White Crystal Flower
-183大白水晶 Big White Crystal Flower
-184药草 Medicinal Herb
-185解毒草 Antidote Grass
-186黑草 Black Grass
-187苦橙草 Orange Grass
-188红草 Red Grass
-189黄草 Yellow Grass
-190蓝草 Blue Grass
-191绿草 Green Grass
-192紫草 Purple Grass
-193靛草 Indigo Grass
-194白草 White Grass
-195杂草 Weeds
-196枯草 Withered Grass
-197复活草 Ayngondaia Lawn
-653艾丽草 Elli Leaves
-2000恢复壶 Recovery Potion
-2001疗愈壶 Healing Potion
-2002神秘壶 Mystery Potion
-2003魔宝壶 Magical Potion
-2004解毒药 Antidote Potion
-2005解麻药 Para-Gone
-2006解封丸 Roundoff
-2007感冒药 Cold Medicine
-2008超级营养药 Formuade
-2009爱情饮料 Love Potion
-2010无敌秘药 Invinciroid
-2011不明物体 Object X
-2012蛋白质 The Protein
-2013智力补品 Intelligencer
-2014生命果冻 Vital Gummi
-2015心灵饮料 Heart Drink
-2016符文药水 Leveliser
-200失败之作 Failed Dish
-201超级失败之作 Disastrous Dish
-250石川鲑鱼生鱼片 Masu Trout Sashimi
-251红点鲑生鱼片  Char Sashimi
-252剧毒虹鳟生鱼片 Rainbow Trout Sashimi
-253钩吻鲑生鱼片 Salmon Sashimi
-254山女鳟生鱼片 Cherry Salmon Sashimi
-255伊富鱼生鱼片 Taimen Sashimi
-256鲷鱼生鱼片 Snapper Sashimi
-257闪光鲷鱼生鱼片 Glitter Snapper Sashimi
-258心动鲷鱼生鱼片 Throbby Snapper Sashimi
-259黑毛鱼生鱼片 Girella Sashimi
-260鲣鱼生鱼片 Skipjack Sashimi
-261青甘鱼生鱼片 Yellowtail Sashimi
-262金枪鱼大脂生鱼片 Fatty Tuna Sashimi
-263沙丁鱼生鱼片 Sardine Sashimi
-264针鱼生鱼片 Needlefish Sashimi
-265秋刀鱼生鱼片 Pike Sashimi
-266比目鱼生鱼片 Flounder Sashimi
-267鲽鱼生鱼片 Turbot Sashimi
-268红叶鱼生鱼片 Autumn Flounder Sashimi
-269乌贼生刺身 Squid Sashimi
-270斑乌贼生刺身 Sunsquid Sashimi
-271封印乌贼生刺身 Lamp Squid Sashimi
-272河豚生鱼片 Blowfish Sashimi
-273螯龙虾刺身 Lobster Sashimi
-274虾刺身 Shrimp Sashimi
-275翻车鱼生鱼片 Sunfish Sashimi
-276红金眼鲷鱼生鱼片 Splendid Alfonsino Sashimi
-300Stir-Fried Veggies 炒蔬菜
-301炒饭 Fried Rice
-302什锦烧 Cabbage Cakes
-303炸薯条 French Fries
-304可乐饼 Croquettes
-305爆米花 Popcorn
-306玉米片 Corn Cereal
-307茄子田乐烧 Miso Eggplant
-308玉子烧 Rolled Eggs
-309欧姆蛋 Omelet
-310蛋包饭 Omelet Rice
-311烤苹果 Baked Apple
-312咖喱面包 Curry Bread
-313法式吐司 French Toast
-314甜甜圈 Donut
-315炒乌冬面 Fried Udon
-316天妇罗 Tempura
-317美式松饼 Pancakes
-318煎饺 Gyoza
-319烩饭 Risotto
-320干咖喱料理 Dry Curry
-321盐烤石川鲑鱼 Salted Masu Trout
-322盐烤红点鲑 Salted Char
-323烤剧毒虹鳟 Salted Rainbow Trout
-324盐烤山女鳟 Salted Cherry Salmon
-325盐烤珠星三块鱼 Salted Chub
-326盐烤鲑鱼 Salted Salmon
-327伊富鱼烤全鱼 Salted Taimen
-328高身鲫烤全鱼 Grilled Crucian Carp
-329鲋鱼靠全鱼 Grilled Gibelio fu
-330烤鲷鱼料理 Grilled Snapper
-331盐烤黑毛鱼 Grilled Girella
-332烤闪光鲷鱼 Grilled Glitter Snapper
-333烤心动鲷鱼 Grilled Throbby Snapper
-334土佐风烤鲣鱼 Grilled Skipjack
-335烤青花鱼 Grilled Mackerel
-336照烧青甘鱼 Yellowtail Teriyaki
-337盐烤西太公鱼 Salted Pond Smelt
-338照烧金枪鱼 Tuna Teriyaki
-339沙丁鱼串 Dried Sardines
-340盐烤针鱼 Grilled Needlefish
-341盐烤秋刀鱼 Salted Pike
-342烤比目鱼 Grilled Flounder
-343烤鲽鱼 Grilled Turbot
-344烤红叶比目鱼 Grilled Autumn Flounder
-345烤乌贼 Grilled Squid
-346烤斑乌贼 Grilled Sunsquid
-347烤封印乌贼 Grilled Lamp Squid
-348烤河豚 Grilled Blowfish
-349螯龙虾烤全虾 Grilled Lobster
-350烤全虾 Grilled Shrimp
-351烤沙比目鱼  Grilled Sand Flounder
-352星星爆米花 Popcorn of the Stars
-353星星马铃薯饼 Hash Browns of the Stars
-354煎烧旗鱼 Marlin Sauté 
-355带鱼拌鸡蛋 Cutlassfish Topped with Egg
-356黄油烤鲍鱼 Abalone Butter Sauté 
-357烤鳕场蟹 Grilled Red King Crab
-358香煎黄金三文鱼 Golden Salmon Meunière 
-400热牛奶 Hot Milk
-401热可可 Hot Chocolate
-402葡萄酒 Grape "Liqueur"
-403炖南瓜 Boiled Pumpkin
-404凉拌菠菜 Boiled Spinach
-405水煮蛋 Boiled Egg
-406拔丝地瓜 Glazed Yam
-407水饺 Boiled Gyoza
-408草莓酱 Strawberry Jam
-409苹果酱 Apple Jam
-410葡萄酱 Grape Jam
-411柑橘酱 Marmalade
-412奶酪火锅 Cheese Fondue
-413乌冬面 Udon
-414咖喱乌冬面 Curry Udon
-415天妇罗乌冬面 Tempura Udon
-416粥 Rice Porridge
-417牛奶粥 Milk Porridge
-418天妇罗盖饭 Tempura Bowl
-419鸡蛋盖饭 Egg Bowl
-420炖菜 Stew
-421咖喱饭 Curry Rice
-422穷极咖喱 Ultimate Curry
-423至尊咖喱 Royal Curry
-424放松茶 Relax Tea
-425味增田乐烧 Grilled Miso
-426什锦火锅 Union Stew
-427炖煮岩石鱼 Stewed Rockfish
-428星星草莓酱 Strawberry Jam of the Stars
-429炖马鲛鱼 Boiled Seerfish
-450烤玉米 Corn on the Cob
-451烤饭团 Baked Onigiri
-452烤番薯 Sweet Potato
-453吐司 Toast
-454果酱面包 Jam Roll
-455黄油面包卷 Butter Roll
-456披萨 Pizza
-457海鲜披萨 Seafood Pizza
-458多利亚饭 Doria
-459海鲜多利亚饭 Seafood Doria
-460奶油烤菜 Gratin
-461海鲜奶油烤菜 Seafood Gratin
-462蜜番薯 Yam of the Ages
-463曲奇饼干 Cookie
-464巧克力曲奇 Chocolate Cookie
-465蛋糕 Cake
-466巧克力蛋糕 Chocolate Cake
-467奶酪蛋糕 Cheesecake
-468苹果派 Apple Pie
-606葡萄干面包 Raisin Bread
-610面包 Bread
-500菠萝汁 Pineapple Juice
-501番茄汁 Tomato Juice
-502葡萄汁 Grape Juice
-503橘子汁 Orange Juice
-504苹果汁 Apple Juice
-505草莓牛奶 Strawberry Milk
-506复合果汁 Fruit Juice
-507水果欧蕾 Fruit Smoothie
-508蔬菜汁 Vegetable Juice
-509蔬菜欧蕾 Veggie Smoothie
-510混合蔬果汁 Mixed Juice
-511混合蔬果欧蕾 Mixed Smoothie
-512番茄酱 Ketchup
-513黄油 Butter
-514黄金果汁 Gold Juice
-515恋爱的预感 Prelude to Love
-516热果汁 Hot Juice
-607冰淇淋 Ice Cream
-550蒸面包 Steamed Bread
-551奶酪蒸面包 Cheese Bread
-552烧卖 Meat Dumpling
-553包子 Manju
-554咖喱包子 Curry Manju
-555蒸饺 Steamed Gyoza
-556蒸卡斯提拉 Pound Cake
-557蒸巧克力蛋糕 Chocolate Sponge Cake
-558布丁 Flan
-559南瓜布丁 Pumpkin Flan
-560团子 Dumplings
-561星星南瓜布丁 Pumpkin Flan of the Stars
-600色拉 Salad
-601三明治 Sandwich
-602水果三明治 Fruit Sandwich
-603腌芜菁 Pickled Turnip
-604腌黄瓜 Pickles
-605竹笋饭 Bamboo Rice
-608放松茶的茶叶 Relax Tea Leaves
-609饭团 Onigiri
-611鲑鱼饭团 Salmon Onigiri
-612腌红白芜菁 Pickle Mix
-613芜菁天堂 Turnip Heaven
-614章鱼饭 Octopus Rice
-615黄金章鱼饭 Golden Octopus Rice
-650米饭 Rice
-651巧克力 Chocolate
-652红酒 Wine
-700牛奶 Milk (S)
-701幼稚牛奶 Milk (M)
-702钙质满分牛奶 Milk (L)
-703鸡蛋 Egg (S)
-704优质鸡蛋 Egg (M)
-705每日健康蛋 Egg (L)
-706蛋黄酱 Mayonnaise
-707奶酪 Cheese
-708酸奶 Yogurt
-709蜂蜜 Honey
-750小麦粉 Flour
-751油 Oil
-752咖喱粉 Curry Powder
-753团子粉 Rice Flour
-2017地狱辣椒 Heavy Spice
-2018甘甜粉 Sweet Powder
-2019醋味香料 Sour Drop
-2020混合香料 Mixed Herbs
-1550阔剑 Broadsword
-1551矿石剑 Steel Sword
-1552矿石剑改 Steel Sword+
-1553弯刀 Cutlass
-1554水星剑 Aqua Sword
-1556防卫者 Defender
-1557烈焰剑 Burning Sword
-1558奢华之剑 Gorgeous Sword
-1559盖亚之剑 Gaia Sword
-1561幸运剑 Luck Blade
-1562白金剑 Platinum Sword
-1563白金剑改 Platinum Sword+
-1564风之剑 Wind Sword
-1565混沌剑 Chaos Blade
-1566红缨 Sakura
-1567太阳之剑 Sunspot
-1568迪朗达尔 Durendal
-1569大气锋刃 Aerial Blade
-1570格兰泰尔 Grantale
-1571粉碎之剑 Smash Blade
-1572死亡之剑 Icifier
-1573噬魂剑 Soul Eater
-1574星辰军刀 Star Saber
-1575胜利之剑 Raventine
-1576屠龙剑 Dragon Slayer
-1577符文剑 Rune Blade
-1578古拉迪乌斯 Gladius
-1579符文传说 Rune Legend
-1580痒痒挠 Back Scratcher
-1581勺子 Spoon
-1582蔬菜剑 Veggieblade
-1583剑草之剑 Plant Sword
-1584水牛怕怕 Buff-A-Way
-1585春日剑 Spring Sword
-1586大地剑 Earthen Blade
-1587三锋剃刀 Trinity Edge
-1588水晶剑 Crystal Blade
-1590大剑 Claymore
-1591双手剑 Zweihaender
-1592双手剑改 Zweihaender+
-1593巨剑 Great Sword
-1594海洋切割者 Sea Cutter
-1595气旋剑 Cyclone Blade
-1596毒素剑 Poison Blade
-1597斗剑 Katzbalger
-1598大地之影 Earth Shade
-1599巨大匕首 Big Knife
-1600太刀 Katana
-1601烈焰大剑 Flame Saber
-1602生物粉碎者 Bio Smasher
-1603白雪皇冠 Snow Crown
-1604斩斩舞 Dancing Dicer
-1605焰形剑 Flamberge
-1606焰形剑改 Flamberge+
-1607波尔卡农 Volcanon
-1608狂乱剑 Psycho
-1609闪亮剑 Shine Blade
-1610大地粉碎者 Grand Smasher
-1614名刀达刃 Steel Slicer
-1615月影 Moon Shadow
-1616苍眼太刀 Blue-Eyed Blade
-1617巴尔蒙克 Balmung
-1618勇敢之心 Braveheart
-1619四元素剑 Force Element
-1620天之村云之剑 Heaven Asunder
-1621王者之剑 Caliburn
-1622大鱼改 Dekash+
-1623白萝卜 Daicone
-1624彷魂斩 Spirit Cleaver
-1625春日破坏剑 Spring Buster Sword
-1628宿怨剑 Vendetta
-1629天使剑 Angel Sword
-1631长枪 Spear
-1632棍棒 Wood Staff
-1633骑士枪 Lance
-1634骑士枪改 Lance+
-1635针枪 Needle Spear
-1636三叉戟 Trident
-1637水之枪 Water Spear
-1638斧枪 Halberd
-1639科西嘉枪 Corsesca
-1640科西嘉枪改 Corsesca+
-1641毒枪 Poison Spear
-1643重枪 Heavy Lance
-1644羽毛枪 Feather Lance
-1645冰山枪 Iceberg
-1646血枪 Blood Lance
-1647魔法枪 Magical Lance
-1648烈焰长枪 Flare Lance
-1649贯魔神枪 Brionac
-1650毒后 Poison Queen
-1652恐惧 Metus
-1653沉默戟刀 Silent Grave
-1654骤变者 Overbreak ju
-1655剧毒枪 Bjor
-1656贝鲁伐洛斯 Belvarose
-1657盖伯尔加之枪 Gae Bolg
-1658龙之牙 Dragon's Fang
-1659永恒之枪 Gungnir
-1660灵枪 Legion
-1661草叉 Pitchfork
-1662感觉不怎么疼的枪 Safety Lance
-1663菠萝棒 Pine Club
-1664夏日骑士枪 Summer Lance
-1665台球杆 Cue
-1666尖刺枪斧 Spear Axe
-1667枫木枪 Maple Lance
-1695战斧 Battle Axe
-1696战斗镰刀 Battle Scythe
-1697枪斧 Pole Axe
-1698枪斧改 Pole Axe+
-1699巨斧 Great Axe
-1700投掷战斧 Tomahawk
-1701翼蜥之牙 Basilisk Fang
-1702洛克斧 Rock Axe
-1703恶魔斧 Demon Axe
-1704冰霜斧 Frost Axe
-1705偃月斧 Crescent Axe
-1706偃月斧改 Crescent Axe+
-1707高热斧 Heat Axe
-1708双刃斧 Double Edge
-1709欧鲁帝鲁 Alldale
-1710恶魔之爪 Devil Finger
-1711行刑者 Executioner
-1712圣斧 Saint Axe
-1713认真起来的破斧头 Axe
-1714棒棒糖 Lollipop
-1715夏日战斧 Summer Axe
-1716氏族斧 Bloodline Axe
-1717龙牙斧 Dragontooth Axe
-1718金属斧 Metal Axe
-1719蝙蝠斧 Bat Axe
-1669战斗锤 Battle Hammer
-1670球棒 Bat
-1671战锤 War Hammer
-1672大锤 Great Hammer
-1673寒冰锤 Ice Hammer
-1674骨锤 Bone Hammer
-1675烈焰锤 Flame Hammer
-1676巨锤 Gigant Hammer
-1677天空锤 Sky Hammer
-1678大地锤 Graviton Hammer
-1679钉锤 Spiked Hammer
-1680水晶锤 Crystal Hammer
-1681施纳贝尔 Schnabel
-1682巨锤改 Gigant Hammer+
-1683雷神之锤 Mjolnir
-1684致命冲击 Fatal Crush
-1685飞溅之星 Splash Star
-1686秋日之锤 Autumn Hammer
-1687破碎锤 Break Hammer
-1690觉醒的破锤子 Hammer
-1691哔哔锤 Toy Hammer
-1764短剑 Short Daggers
-1765钢化刃 Steel Edge
-1766冰霜之刃 Frost Edge
-1767钢铁之刃 Iron Edge
-1768盗贼匕首 Thief Knives
-1769风之刃 Wind Edge
-1770超级奢华之剑 Gorgeous Lx
-1771斩钢刃 Steel Blades
-1772双鬼丸 Twin Blades
-1773狂暴 Rampage
-1774沙罗曼达 Salamander
-1775白金之刃 Platinum Edge
-1776音速短剑 Sonic Daggers
-1777混沌之刃 Chaos Edge
-1778沙漠之风 Desert Wind
-1779崩坏之墙 Broken Wall
-1780力量切割 Force Divide
-1781火焰之心 Heart Fire
-1782亡神剑 Orcus Swords
-1783终极暴雪 Deep Blizzard
-1784暗黑邀约 Dark Invitation
-1785神官之剑 Priest Sabers
-1786伊弗利特 Efreet
-1787龙骑兵之爪 Dragon Claws
-1788绿宝石之刃 Emerald Edge
-1789符文之刃 Rune Edge
-1790双重正义 Twin Justice
-1792双重痒痒挠 Double Scratch
-1793双过滤勺 Acutorimass
-1795双龙剑 Twin Dragon Swords
-1796秋日之剑 Autumn Swords
-1798皮手套 Leather Gloves
-1799指虎 Brass Knuckles
-1800护手 Kote
-1801手套 Punching Gloves
-1802熊之爪 Bear Claws
-1803土之拳 Fists of the Earth
-1804炎之拳 Fists of Fire
-1805水之拳 Fists of Water
-1806龙之爪 Dragon Claws
-1807暗之拳 Fists of Dark
-1808风之拳 Fists of Wind
-1809光之拳 Fists of Light
-1810喵喵拳 Cat Punch
-1812铁千拳 Ironleaf Fists
-1813拳斗士手套 Caestus
-1814石魔人之拳 Golem Punch
-1815神之手 Hand of God
-1816巴刹卡达 Bazal Katar
-1817芬里尔 Fenrir
-1818双龙之爪 Twin Dragon Claws
-1819冬日手套 Winter Gloves
-1820爪爪拳套 Scratch Knuckles
-1821黑曜拳 Obsidian Fists
-1721魔杖 Rod
-1722紫水晶之杖 Amethyst Rod
-1723海蓝宝石之杖 Aquamarine Rod
-1724友好之杖 Friendly Rod
-1725甜蜜蜜之杖 Love-Love Rod
-1726魔法棒 Staff
-1727绿宝石之杖 Emerald Rod
-1728银之杖 Silver Staff
-1729烈焰之杖 Flare Staff
-1730红宝石之杖 Ruby Rod
-1731蓝宝石之杖 Sapphire Rod
-1732大地之杖 Earth Staff
-1733闪电之杖 Lightning Wand
-1734寒冰之杖 Ice Staff
-1735钻石之杖 Diamond Rod
-1736法师之杖 Wizard's Staff
-1737魔术手杖 Mage's Staff
-1738星雨之杖 Shooting Star Staff
-1739地狱之杖 Hell Branch
-1740赤红手杖 Crimson Staff
-1741泡泡之杖 Bubble Staff
-1742盖亚之杖 Gaia Rod
-1743气旋之杖 Cyclone Rod
-1744风暴之杖 Storm Wand
-1745符文之杖 Rune Staff
-1746魔法手杖 Mage's Staff+
-1747魔法扫把 Magic Broom
-1748魔法注射器 Magic Shot
-1749地狱灾厄 Hell Curse
-1750阿尔吉侬 Algernon
-1751贤者之杖 Sorcerer's Wand
-1753金芜菁之杖 Golden Turnip Staff
-1754烤番薯之杖 Sweet Potato Staff
-1756注射器 Syringe
-1757冬日之杖 Winter Rod
-1758恶魔之杖 Devil Rod
-1759方正之杖 Square Rod
-1760邪龙之杖 Evil Dragon Staff
-1761制裁之杖 Judgment Staff
-1762圆月之杖 Harvest Moon Staff
-900破锄头 Cheap Hoe
-901坚固的锄头 Sturdy Hoe
-902熟练的锄头 Seasoned Hoe
-903闪耀的锄头 Shiny Hoe
-904喜悦的锄头 Blessed Hoe
-905将军锄头 General's Hoe
-906破洒水壶 Cheap Waterpot
-907马口铁洒水壶 Tin Waterpot
-908狮子洒水壶 Lion Waterpot
-909彩虹洒水壶 Rainbow Waterpot
-910幸福的洒水壶 Joy Waterpot
-911破镰刀 Cheap Sickle
-912除草镰刀 Iron Sickle
-913优质镰刀 Quality Sickle
-914爱意镰刀 Love Sickle
-915名匠镰刀 Legendary Sickle
-916破锤子 Cheap Hammer
-917青铜锤子 Bronze Hammer
-918银锤子 Silver Hammer
-919金锤子 Golden Hammer
-920白金锤子 Platinum Hammer
-921破斧 Cheap Axe
-922砍柴用斧 Chopping Axe
-923砍伐用斧 Lumber Axe
-924巡山用斧 Mountain Axe
-925奇迹斧 Miracle Axe
-926破钓竿 Cheap Pole
-927初学者钓竿 Beginner's Pole
-928中级者钓竿 Skilled Pole
-929名人钓竿 Famous Pole
-930神木钓竿 Sacred Pole
-1000迷你盾 Small Shield
-1002铁盾 Iron Shield
-1003猴子布娃娃 Monkey Plush
-1004圆盾 Round Shield
-1005乌龟盾 Turtle Shield
-1006混沌盾 Chaos Shield
-1007骨盾 Bone Shield
-1008魔法盾 Magic Shield
-1009重盾 Heavy Shield
-1010白金盾 Platinum Shield
-1011鸢盾 Kite Shield
-1012骑士盾 Knight Shield
-1013元素盾 Element Shield
-1014魔术盾 Magical Shield
-1015棱镜盾 Prism Shield
-1016符文盾 Rune Shield
-1017钢身花之盾 Magic Plant Shield
-1018将军盾 General's Shield
-1019守护盾 Guardian Shield
-1020七色盾 Rainbow Shield
-1021战士盾 Warrior Shield
-1022廉价盾 Cheap Shield
-1023诅咒盾 Curse Shield
-1024巨盾 Great Shield
-1025白金盾改 Platinum Shield+
-1026黄盾 Yellow Shield
-1027蓝盾 Blue Shield
-1300廉价手镯 Cheap Bracelet
-1301铜手镯 Bronze Bracelet
-1302银手镯 Silver Bracelet
-1303金手镯 Gold Bracelet
-1304白金手镯 Platinum Bracelet
-1305银戒指 Silver Ring
-1306金戒指 Gold Ring
-1307白金戒指 Platinum Ring
-1308盾戒 Shield Ring
-1309暴击戒指 Critical Ring
-1310静默戒指 Silent Ring
-1311瘫痪戒指 Paralysis Ring
-1312毒素戒指 Poison Ring
-1313魔法戒指 Magic Ring
-1314投掷戒指 Throwing Ring
-1316熬夜戒指 Stay-Up Ring
-1317订婚戒指 Engagement Ring
-1318海蓝宝石戒指 Aquamarine Ring
-1319紫水晶戒指 Amethyst Ring
-1320绿宝石戒指 Emerald Ring
-1321蓝宝石戒指 Sapphire Ring
-1322红宝石戒指 Ruby Ring
-1323暗之戒指 Cursed Ring
-1324钻石戒指 Diamond Ring
-1326海蓝宝石胸针 Aquamarine Brooch
-1327紫水晶胸针 Amethyst Brooch
-1328绿宝石胸针 Emerald Brooch
-1329蓝宝石胸针 Sapphire Brooch
-1330红宝石胸针 Ruby Brooch
-1331钻石胸针 Diamond Brooch
-1332海豚胸针 Dolphin Brooch
-1333火之戒指 Fire Ring
-1334风之戒指 Wind Ring
-1335水之戒指 Water Ring
-1336地之戒指 Earth Ring
-1337幸福戒指 Happy Ring
-1338银坠饰 Silver Pendant
-1339星形坠饰 Star Pendant
-1340太阳坠饰 Sun Pendant
-1341草原坠饰 Field Pendant
-1342水滴坠饰 Dew Pendant
-1343大地坠饰 Earth Pendant
-1344心形坠饰 Heart Pendant
-1345奇妙的坠饰 Strange Pendant
-1346莳萝首饰 Anette's Necklace
-1347拼命三郎的劳作手套 Work Gloves
-1348结实的手套 Sturdy Gloves
-1349力量手套 Power Gloves
-1350专心耳饰 Focus Earrings
-1351魔女耳饰 Witch Earrings
-1352魔法石耳饰 Magic Earrings
-1353护肤 Charm
-1354神圣坠饰 Holy Amulet
-1355停战的祈祷 Rosary
-1356辟邪符 Talisman
-1357魔斗的咒符 Magic Charm
-1358皮腰带 Leather Belt
-1359暴击之七 Lucky Strike
-1360冠军腰带 Champ Belt
-1361手织围巾 Hand-Knit Scarf
-1362毛茸茸围巾 Fluffy Scarf
-1363豪杰之证 Hero's Proof
-1364贤者之证 Proof of Wisdom
-1365必杀的秘诀 Art of Attack
-1366钢铁的秘诀 Art of Defense
-1367魔法之道的秘诀 Art of Magic
-1368勇气徽章 Courage Badge
-1101蓝色蝴蝶结 Blue Ribbon
-1102绿色蝴蝶结 Green Ribbon
-1103紫色蝴蝶结 Purple Ribbon
-1104夏季头饰 Summer Headdress
-1105眼镜 Spectacles
-1106草帽 Straw Hat
-1107时尚帽子 Fancy Hat
-1108名牌眼镜 Brand Glasses
-1110书呆子眼镜 Intelligent Glasses
-1112黑色蝴蝶结 Black Ribbon
-1114大礼帽 Silk Hat
-1116黄色蝴蝶结 Yellow Ribbon
-1117秋季头饰 Autumn Headdress
-1118兽耳 Cat Ears
-1119红色蝴蝶结 Red Ribbon
-1120春季头饰 Spring Headdress
-1121橘色蝴蝶结 Orange Ribbon
-1122冬季头饰 Winter Headdress
-1123白色蝴蝶结 White Ribbon
-1124四季头饰 Four Seasons Headdress
-1126靛蓝蝴蝶结 Indigo Ribbon
-1127皇冠 Crown
-1128芜菁头 Turnip Headgear
-1129南瓜头 Pumpkin Headgear
-1130将军帽 General's Hat
-1315银发簪 Silver Hairpin
-1325金发簪 Gold Hairpin
-1250皮长靴 Leather Boots
-1251哔哔鞋 Cheep-Cheep Sandals
-1252内增高靴 Secret Shoes
-1253银靴 Silver Boots
-1254重靴 Heavy Boots
-1255隐迹靴 Sneaking Boots
-1256金靴 Gold Boots
-1257骨靴 Bone Boots
-1258阔步靴 Strider Boots
-1259稳步靴 Step-In Boots
-1260羽毛长靴 Feather Boots
-1261幽灵靴 Ghost Boots
-1262铁屐靴 Iron Geta
-1263骑士靴 Knight Boots
-1264小仙子靴 Fairy Boots
-1265火箭之翼 Rocket Wing
-1266钉鞋 Spiked Shoes
-1200衬衫 Shirt
-1201背心 Vest
-1202白布 Cotton Cloth
-1203单衣 Mail
-1204锁子甲 Chain Mail
-1205鳞甲背心 Scale Vest
-1206闪亮亮的衬衫 Sparkling Shirt
-1207风之斗篷 Wind Cloak
-1208护具 Protector
-1209白金单衣 Platinum Mail
-1210札甲背心 Lamellar Vest
-1211佣兵斗篷 Mercenary's Cloak
-1212摩可摩可衬衫 Wooly Shirt
-1213精灵斗篷 Elvish Cloak
-1214龙之斗篷 Dragon Cloak
-1215力量护具 Power Protector
-1216符文背心 Rune Vest
-1217皇家护甲 Royal Garter
-1218四幻龙背心 Four Dragons' Vest
-1219将军长袍 General's Robe
-1220橡胶雨衣 Rubber Poncho
-931毛刷 Brush
-932剪毛刀 Clippers
-933放大镜 Magnifying Glass
-800芜菁种子 Turnip Seed
-801马铃薯种子 Potato Seed
-802黄瓜种子 Cucumber Seed
-803草莓种子 Strawberry Seed
-804卷心菜种子 Cabbage Seed
-805月落草种子 Moondrop Seed
-806托伊药草种子 Toyherb Seed
-807番茄种子 Tomato Seed
-808玉米种子 Corn Seed
-809洋葱种子 Onion Seed
-810南瓜种子 Pumpkin Seed
-811菠萝种子 Pineapple Seed
-812粉红猫种子 Pink Cat Seed
-813茄子种子 Eggplant Seed
-814胡罗卜种子 Carrot Seed
-815番薯种子 Yam Seed
-816菠菜种子 Spinach Seed
-817青椒种子 Green Pepper Seed
-818魅蓝草种子 Charm Blue Seed
-819牧草种子 Fodder Seed
-820樱草种子 Cherry Grass Seed
-821灯草种子 Lamp Grass Seed
-822青水晶种子 Blue Crystal Flower Seed
-823金刚花种子 Emery Flower Seed
-824铁千轮种子 Ironleaf Seed
-825幸运草种子 Clover Seed
-826原之焰火种子 Fireflower Seed
-827绿水晶种子 Green Crystal Flower Seed
-828树形草种子 Noel Grass Seed
-829红叶花种子 Autumn Grass Seed
-830剧毒蒲公英种子 Pom-Pom Grass Seed
-831红水晶种子 Red Crystal Flower Seed
-832白水晶种子 White Crystal Flower Seed
-833樱芜菁种子 Pink Turnip Seed
-834白萝卜种子 Radish Seed
-835葱种子 Leek Seed
-836白菜种子 Bok Choy Seed
-837金卷心菜种子 Golden Cabbage Seed
-838金南瓜种子 Golden Pumpkin Seed
-839金马铃薯种子 Golden Potato Seed
-840金芜菁种子 Golden Turnip Seed
-841少女蜜瓜种子 Pink Melon Seed
-842火热果实种子 Hot-Hot Seed
-843苹果树种子 Apple Tree Seed
-844橘子树种子 Orange Tree Seed
-845葡萄树种子 Grape Tree Seed
-846辉木种子 Twinkle Seed
-848剑花种子 Sword Seed
-849盾花种子 Shield Seed
-850流星种子 Starfall Seed
-2100植物保护剂 Wettable Powder
-2101速速绿 Greenifier
-2102速速绿疾风 Greenifier+
-2103很会长 Formula A
-2104快速长 Formula B
-2105极速长 Formula C
-2106不会烂a No Rot α
-2107不会烂b No Rot β
-2108要长大 Giantizer
-2109要变小 Minimizer
-1401火球 Fireball
-1402大火球 Inferno
-1403爆破 Explosion
-1404彗星暴雨 Gatling Comet
-1405激光水波 Water Laser
-1406平行激光水波 Parallel Laser
-1407三角激光水波 Delta Laser
-1408冲击激光水波 Impact Laser
-1409螺旋石 Rock Screw
-1410地之尖柱 Earth Spike
-1411复仇者之石 Avenger Rock
-1412大地尖刺 Grand Spike
-1413音速之风 Sonic Wind
-1414双重音波 Double Sonic
-1415穿透音波 Sonic Ricochet
-1416音速风暴 Sonic Storm
-1417光屏障 Light Barrier
-1418闪光 Shine
-1419棱镜 Prism
-1420火花 Sparkle
-1421黑洞 Dark Ball
-1422黑蛇 Dark Snake
-1423暗黑 Darkness
-1424暗黑吸收 Dark Absorber
-1425治愈 Cure
-1426全体治愈 Cure All
-1427大师治愈 Master Cure
-1428毒素治愈 Medipoison
-1429瘫痪治愈 Mediparalyze
-1430封印治愈 Mediseal
-1432打招呼用魔法 Greeting Spell
-1433能量波 Power Wave
-1434冲击挥砍 Dash Slash
-1435猛烈攻击 Rush Attack
-1436破坏回旋 Round Break
-1437精神力突进 Mind Thrust
-1439烈空 Gust
-1440云裂 Storm
-1441瞬迅 Blitz
-1442双刺 Twin Attack
-1443罗闪 Rail Strike
-1445旋风剑 Wind Slash
-1446一心一刀 Flash Strike
-1447无心剑 Naive Blade
-1448不屈架式 Steel Heart
-1449行云流水三段 Delta Strike
-1451天空气旋 Hurricane
-1452奋力收割 Reaper Slash
-1453百万打击 Millionstrike
-1454灾难行进 Axel Disaster
-1455千重突刺 Thousand Thrusts
-1457星尘飞升 Stardust Upper
-1458龙卷挥击 Tornado Swing
-1459大地冲击 Grand Impact
-1460百万挥击 Giga Swing
-1461亿万挥击 Terra Swing
-1463勾拳 Uppercut
-1464二连踢 Double Kick
-1465正拳中段突击 Straight Punch
-1466猫骗 Stun Clap
-1467百烈拳 Rush Punch
-1468气旋 Cyclone
-1469缩地法 Rapid Move
-1471特技协奏曲 Bonus Concerto
-1472进击进行曲 Striking March
-1473铁壁华尔兹 Iron Waltz
-2150牧草 Fodder
-2151废铁 Scrap Metal
-2152铁 Iron
-2153惊人的废铁 Scrap Metal+
-2154铜 Bronze
-2155银 Silver
-2156金 Gold
-2157白金 Platinum
-2158奥利哈钢 Orichalcum
-2159龙幻石 Dragonic Stone
-2160紫水晶 Amethyst
-2161海蓝宝石 Aquamarine
-2162绿宝石 Emerald
-2163红宝石 Ruby
-2164蓝宝石 Sapphire
-2165钻石 Diamond
-2166绿核 Green Core
-2167红核 Red Core
-2168黄核 Yellow Core
-2169蓝核 Blue Core
-2170骷髅水晶 Crystal Skull
-217110倍铁 Tenfold Steel
-2172倍铁 Double Steel
-2173闪耀石 Glitta Augite
-2175梅西莱特矿石 Light Ore
-2176符文球的碎片 Rune Sphere Shard
-2177遮光石 Shade Stone
-2178纯白石 White Stone
-2179魔力结晶 Magic Crystal
-2180暗之结晶 Dark Crystal
-2181火之结晶 Fire Crystal
-2182地之结晶 Earth Crystal
-2183爱之结晶 Love Crystal
-2184风之结晶 Wind Crystal
-2185水之结晶 Water Crystal
-2186光之结晶 Light Crystal
-2187小结晶 Small Crystal
-2188大结晶 Big Crystal
-2189符文结晶 Rune Crystal
-2190雷之结晶 Electro Crystal
-2191细短棒 Stick
-2192昆虫的角 Insect Horn
-2193植物的茎 Plant Stem
-2194斗牛的角 Bull's Horn
-2195会动的树枝 Moving Branch
-2196坚固的角 Rigid Horn
-2197粗短棒 Thick Stick
-2198魔人的角 Devil Horn
-2199胶 Glue
-2200恶魔之血 Devil Blood
-2201麻痹毒液 Paralysis Poison
-2202毒液王 Poison King
-2203鸟羽毛 Bird's Feather
-2204黄金羽毛 Yellow Feather
-2205黑鸟羽毛 Black Feather
-2206雷鸟羽毛 Thunderbird Feather
-2209古代鱼的骨头 Fish Fossil
-2210龙骨 Dragon Bones
-2211骷髅 Skull
-2213菊石 Ammonite
-2214圆石 Round Stone
-2215小石魔人之石 Tiny Golem Stone
-2216石魔人之石 Golem Stone
-2217石魔人的石板 Golem Tablet
-2218石魔人的魂石 Golem Spirit Stone
-2219真理的石板 Tablet of Truth
-2220毛线球 Yarn
-2221哥布林的绷带 Old Bandage
-2223蜘蛛丝 Spider's Thread
-2225植物的藤曼 Vine
-2227结实的藤曼 Strong Vine
-2228漂亮的蜘蛛丝 Pretty Thread
-2230生锈的箭头 Arrowhead
-2231利刃的碎片 Blade Shard
-2232坏掉的柄 Broken Hilt
-2233坏掉的木箱 Broken Box
-2234锤子的碎片 Hammer Piece
-2235坏掉的垫肩 Shoulder Piece
-2238耀眼的镰刀刃 Glistening Blade
-2239穷极锤子的碎片 Great Hammer Shard
-2242小破廉金属板 MTGU Plate
-2243海盗铠甲的碎片 Pirate's Armor
-2245软软毛 Fur (S)
-2246毛皮 Fur
-2247黄色毛皮 Yellow Down
-2248优质毛皮 Quality Fur
-2250优质的轻柔毛皮 Quality Puffy Fur
-2251软绒毛 Fur (M)
-2252高品质的摩可软毛 Wooly Furball
-2253毛茸茸的软软毛 Fur (L)
-2254皇帝类企鹅的毛皮 Penguin Down
-2257穷极的胸毛 Chest Hair
-2258蘑菇孢子 Spore
-2259小仙子的粉末 Fairy Dust
-2260射手的引火药 Gunpowder
-2261毒粉 Poison Powder
-2262三相孢子 Holy Spore
-2263植物的根 Root
-2264魔法师的粉末 Magic Powder
-2265不明粉末 Mysterious Powder
-2266岩石龙的粉末 Dragon Golem Ashes
-2267魔法师的秘药 Magic Elixir
-2268赤龙的粉末 Red Dragon Ashes
-2269小仙子的秘药 Fairy Elixir
-2272会唱歌的小瓶子 Melody Bottle
-2273兽人的破布 Cheap Cloth
-2274虫皮 Insect Carapace
-2275浮游灵的头巾 Ghost Hood
-2276漂亮的虫皮 Pretty Carapace
-2277海盗哥布林的布 Quality Cloth
-2278高级破布 Quality Worn Cloth
-2279丝绸 Silk Cloth
-2280巨人的手套 Giant's Gloves
-2281蓝色巨人的手套 Blue Giant's Glove
-2282传说中的兽人布 Ancient Orc Cloth
-2283昆虫的下颚 Insect Jaw
-2284豹爪 Panther Claw
-2285狼牙 Wolf Fang
-2286巴姆猫人的爪子 Palm Claw
-2287巨人之爪 Giant's Nail
-2289象牙 Ivory Tusk
-2290大巨人的指甲 Big Giant's Nail
-2291不会断的象牙 Unbroken Ivory Tusk
-2294金狼的牙 Gold Wolf Fang
-2296魔力的豹爪 Magic Claw
-2297龙牙 Dragon Fang
-2298玛姆虎人的爪子 Malm Claw
-2300危险的钳子 Dangerous Scissors
-2302湿掉的鳞片 Wet Scale
-2303龙的鳞片 Dragon Scale
-2304黑色的鳞片 Black Scale
-2305苍蓝色的鳞片 Blue Scale
-2306闪耀的鳞片 Glitter Scale
-2307朱色的鳞片 Crimson Scale
-2308爱的鳞片 Love Scale
-2309克里莫亚的鳞片 Grimoire Scale
-2311岩石龙的鳞片 Dragon Golem Scale
-2312蛇龙的鳞片 Basilisk Scale
-2315巨鸟冠 Big Bird's Comb
-2318战士之证 Warrior's Proof
-2319首领之证 Proof of Rank
-2321冰之结晶 Ice Crystal
-2322锐利的角 Sharp Horn
-2323引雷之角 Lightning Horn
-2324莲叶 Lotus Leaf
-2325粘糊糊的液体 Viscous Liquid
-2326闪亮之翼 Brilliant Feather
-2327古代鱼的羽鳍 Ancient Fish Fin
-2328黑色毛球 Black Furball
-2329奇妙的触手 Strange Tentacle
-2330软绵绵的尾巴 Fluffy Tail
-2331黑色垫肩 Black Shoulder Guard
-2332九尾的铃铛 Nine-Tailed Fox Bell
-2333铠甲的碎片 Armor Fragment
-2334生锈的铁 Rusted Iron
-2335细密的翠毛 Fine Green Fur
-2336深红色毛皮 Crimson Fur
-2337红色的爪子 Crimson Claw
-2338坚固的爪子 Strong Talon
-2339蜘蛛的下颚 Spider Jaw
-2340优质的昆虫下颚 Quality Insect Jaw
-2341锐利之牙 Razor Fang
-2342尖锐之爪 Sharp Claw
-2343红色的龙爪 Scarlet Dragon Claw
-2344金黄色的龙爪 Golden Dragon Claw
-2345坚固的鳞片 Hard Scale
-2346人鱼的鳞片 Mermaid Scale
-2347红色的鳞片 Scarlet Scale
-2348金黄色的鳞片 Golden Scale
-2349将军宝珠 General's Orb
-2350无之标识 Null Symbol
-2351天青色的毛皮 Azure Fur
-2352极品乌贼墨汁 High-Quality Squid Ink
-2353漆黑色的爪子 Jet-Black Talon
-2354不死龙的爪子 Immortal Dragon Claw
-2355疾风羽毛 Gale Down
-2356浮云的软毛 Cloud Fur
-2357铁块的碎片 Iron Fragment
-2358发光的鳞片 Brilliant Scale
-2359赤色羽毛 Crimson Feather
-2360寒冷羽毛 Frigid Feather
-2361神秘粉末 Mystic Dust
-2400土之水晶 Gaia Crystal
-2401火之水晶 Ignis Crystal
-2402冰之水晶 Glacies Crystal
-2403风之水晶 Ventus Crystal
-2404地之水晶 Terra Crystal
-2405土之水晶的碎片 Gaia Crystal Fragment
-2406火之水晶的碎片 Ignis Crystal Fragment
-2407冰之水晶的碎片 Glacies Crystal Fragment
-2408风之水晶的碎片 Ventus Crystal Fragment
-2409地之水晶的碎片 Terra Crystal Fragment
-1850石川鲑鱼 Masu Trout
-1851乌贼 Squid
-1852伊富鱼 Taimen
-1853沙丁鱼 Sardine
-1854红点鲑 Char
-1855珠星三块鱼 Chub
-1856闪光鲷鱼 Glitter Snapper
-1857鲣鱼 Skipjack
-1858鲽鱼 Turbot
-1859鲋鱼 Gibelio
-1860钩吻鱼 Salmon
-1861青花鱼 Mackerel
-1862针鱼 Needlefish
-1863秋刀鱼 Pike
-1864斑乌贼 Sunsquid
-1865虾 Shrimp
-1866鲷鱼 Snapper
-1867心动鲷鱼 Throbby Snapper
-1868剧毒虹鳟 Rainbow Trout
-1869比目鱼 Flounder
-1870河豚 Blowfish
-1871青甘鱼 Yellowtail
-1872高身鲫 Crucian Carp
-1873金枪鱼 Tuna
-1874黑毛鱼 Girella
-1875红叶比目鱼 Autumn Flounder
-1876山女鳟 Cherry Salmon
-1877封印乌贼 Lamp Squid
-1878螯龙虾 Lobster
-1879西太公鱼 Pond Smelt
-1880沙比目鱼 Sand Flounder
-1881岩石鱼 Rockfish
-1882黄金三文鱼 Golden Salmon
-1883黄金章鱼 Golden Octopus
-1884翻车鱼 Sunfish
-1885马鲛鱼 Seerfish
-1886章鱼 Octopus
-1887旗鱼 Marlin
-1888带鱼 Cutlassfish
-1889鲍鱼 Abalone
-1890红金眼鲷 Splendid Alfonsino
-1891鳕场蟹 Red King Crab
-1900空罐 Can
-1901高筒靴 Boot
-1902罕见的空罐 Rare Can
-1500石头 Rock
-1501树枝 Branch
-1502木材 Lumber
-1503石材 Material Stone
-1950药学配方面包 Chemistry Bread
-1951药学高级配方面包 Chemistry Bread+
-1952料理配方面包 Cooking Bread
-1953料理高级配方面包 Cooking Bread+
-1954武器配方面包 Weapon Bread
-1955武器高级配方面包 Weapon Bread+
-1956装饰配方面包 Crafting Bread
-1957装饰高级配方面包 Crafting Bread+
-1958农具配方面包 Farming Bread
-1959农具高级配方面包 Farming Bread+
-3000矿产 Minerals
-3001液体 Liquids
-3002爪子和尖牙 Claws and Fangs
-3003棍棒和茎 Sticks and Stems
-3004衣服和皮肤 Cloths and Skins
-3005皮草 Furs
-3006细绳 Strings
-3007碎片 Shards
-3008粉末和孢子 Powders and Spores
-3009鳞片 Scales
-3010贝壳和骨骼 Shells and Bones
-3011石子 Stones
-3012蔓菁 Turnips
-3013晶体 Crystals
-3014珠宝 Jewels
-3015羽毛 Feathers
-3016宽短裤 Jams
-3017咖喱 Curries
-3018鱿鱼 Squids
-3019蛋 Eggs
-3020奶制的 Dairy
-3021蘑菇 Mushrooms
+[Crop/Vegetable/Fruit]
+1 Cabbage
+2 King Cabbage
+3 Pink Turnip
+4 Colossal Pink Turnip
+5 Pink Melon
+6 Conqueror Melon
+7 Onion
+8 Ultra Onion
+9 Pumpkin
+10 Doom Pumpkin
+11 Cucumber
+12 Kaiser Cucumber
+13 Corn
+14 Gigant Corn
+15 Tomato
+16 Titan Tomato
+17 Eggplant
+18 Emperor Eggplant
+19 Yam
+20 Lordly Yam
+21 Potato
+22 Princely Potato
+23 Carrot
+24 Royal Carrot
+25 Green Pepper
+26 Green Pepper Rex
+27 Spinach
+28 Sovereign Spinach
+29 Turnip
+30 Tyrant Turnip
+31 Radish
+32 Noble Radish
+33 Leek
+34 Legendary Leek
+35 Bok Choy
+36 Boss Bok Choy
+37 HotHot Fruit
+38 Giant HotHot Fruit
+39 Golden Cabbage
+40 Golden King Cabbage
+41 Golden Pumpkin
+42 Golden Doom Pumpkin
+43 Golden Potato
+44 Golden Princely Potato
+45 Golden Turnip
+46 Golden Tyrant Turnip
+47 Bamboo Shoot
+48 Mushroom
+49 Mushroom
+50 Mushroom
+51 Mushroom
+52 Mushroom
+53 Mushroom
+54 Monarch Mushroom
+56 Starfall Corn
+57 Starfall Pumpkin
+58 Starfall Potato
+55 Starfall Strawberry
+100 Grape
+101 Apple
+102 Mealy Apple
+103 Orange
+104 Strawberry
+105 Sultan Strawberry
+106 Pineapple
+107 King Pineapple
+
+[Flowers/Plants]
+150 Toyherb
+151 Ultra Toyherb
+152 Moondrop Flower
+153 Ultra Moondrop
+154 Pink Cat
+155 King Pink Cat
+156 Charm Blue
+157 Great Charm Blue
+158 Cherry Grass
+159 King Cherry Grass
+160 Lamp Grass
+161 Kaiser Lamp Grass
+162 Blue Crystal Flower
+163 Big Blue Crystal Flower
+164 Emery Flower
+165 Great Emery Flower
+166 Ironleaf
+167 Ultra Ironleaf
+168 4Leaf Clover
+169 Great 4Leaf Clover
+170 Fireflower
+171 Big Fireflower
+172 Green Crystal Flower
+173 Big Green Crystal Flower
+174 Noel Grass
+175 Large Noel Grass
+176 Autumn Grass
+177 Great Autumn Grass
+178 PomPom Grass 
+179 King PomPom Grass
+180 Red Crystal Flower
+181 Big Red Crystal Flower
+182 White Crystal Flower
+183 Big White Crystal Flower
+184 Medicinal Herb
+185 Antidote Grass
+186 Black Grass
+187 Orange Grass
+188 Red Grass
+189 Yellow Grass
+190 Blue Grass
+191 Green Grass
+192 Purple Grass
+193 Indigo Grass
+194 White Grass
+195 Weeds
+196 Withered Grass
+197 Ayngondaia Lawn
+653 Elli Leaves
+2150 Fodder
+
+[Medecine]
+2000 Recovery Potion
+2001 Healing Potion
+2002 Mystery Potion
+2003 Magical Potion
+2004 Antidote Potion
+2005 ParaGone
+2006 Roundoff
+2007 Cold Medicine
+2008 Formuade
+2009 Love Potion
+2010 Invinciroid
+2011 Object X
+2012 The Protein
+2013 Intelligencer
+2014 Vital Gummi
+2015 Heart Drink
+2016 Leveliser
+
+[Dishes]
+200 Failed Dish
+201 Disastrous Dish
+250 Masu Trout Sashimi
+251 Char Sashimi
+252 Rainbow Trout Sashimi
+253 Salmon Sashimi
+254 Cherry Salmon Sashimi
+255 Taimen Sashimi
+256 Snapper Sashimi
+257 Glitter Snapper Sashimi
+258 Throbby Snapper Sashimi
+259 Girella Sashimi
+260 Skipjack Sashimi
+261 Yellowtail Sashimi
+262 Fatty Tuna Sashimi
+263 Sardine Sashimi
+264 Needlefish Sashimi
+265 Pike Sashimi
+266 Flounder Sashimi
+267 Turbot Sashimi
+268 Autumn Flounder Sashimi
+269 Squid Sashimi
+270 Sunsquid Sashimi
+271 Lamp Squid Sashimi
+272 Blowfish Sashimi
+273 Lobster Sashimi
+274 Shrimp Sashimi
+275 Sunfish Sashimi
+276 Splendid Alfonsino Sashimi
+300 Stir-Fried Veggies 
+301 Fried Rice
+302 Cabbage Cakes
+303 French Fries
+304 Croquettes
+305 Popcorn
+306 Corn Cereal
+307 Miso Eggplant
+308 Rolled Eggs
+309 Omelet
+310 Omelet Rice
+311 Baked Apple
+312 Curry Bread
+313 French Toast
+314 Donut
+315 Fried Udon
+316 Tempura
+317 Pancakes
+318 Gyoza
+319 Risotto
+320 Dry Curry
+321 Salted Masu Trout
+322 Salted Char
+323 Salted Rainbow Trout
+324 Salted Cherry Salmon
+325 Salted Chub
+326 Salted Salmon
+327 Salted Taimen
+328 Grilled Crucian Carp
+329 Grilled Gibelio fu
+330 Grilled Snapper
+331 Grilled Girella
+332 Grilled Glitter Snapper
+333 Grilled Throbby Snapper
+334 Grilled Skipjack
+335 Grilled Mackerel
+336 Yellowtail Teriyaki
+337 Salted Pond Smelt
+338 Tuna Teriyaki
+339 Dried Sardines
+340 Grilled Needlefish
+341 Salted Pike
+342 Grilled Flounder
+343 Grilled Turbot
+344 Grilled Autumn Flounder
+345 Grilled Squid
+346 Grilled Sunsquid
+347 Grilled Lamp Squid
+348 Grilled Blowfish
+349 Grilled Lobster
+350 Grilled Shrimp
+351 Grilled Sand Flounder
+352 Popcorn of the Stars
+353 Hash Browns of the Stars
+354 Marlin Sauté 
+355 Cutlassfish Topped with Egg
+356 Abalone Butter Sauté 
+357 Grilled Red King Crab
+358 Golden Salmon Meunire 
+400 Hot Milk
+401 Hot Chocolate
+402 Grape "Liqueur"
+403 Boiled Pumpkin
+404 Boiled Spinach
+405 Boiled Egg
+406 Glazed Yam
+407 Boiled Gyoza
+408 Strawberry Jam
+409 Apple Jam
+410 Grape Jam
+411 Marmalade
+412 Cheese Fondue
+413 Udon
+414 Curry Udon
+415 Tempura Udon
+416 Rice Porridge
+417 Milk Porridge
+418 Tempura Bowl
+419 Egg Bowl
+420 Stew
+421 Curry Rice
+422 Ultimate Curry
+423 Royal Curry
+424 Relax Tea
+425 Grilled Miso
+426 Union Stew
+427 Stewed Rockfish
+428 Strawberry Jam of the Stars
+429 Boiled Seerfish
+450 Corn on the Cob
+451 Baked Onigiri
+452 Sweet Potato
+453 Toast
+454 Jam Roll
+455 Butter Roll
+456 Pizza
+457 Seafood Pizza
+458 Doria
+459 Seafood Doria
+460 Gratin
+461 Seafood Gratin
+462 Yam of the Ages
+463 Cookie
+464 Chocolate Cookie
+465 Cake
+466 Chocolate Cake
+467 Cheesecake
+468 Apple Pie
+606 Raisin Bread
+610 Bread
+500 Pineapple Juice
+501 Tomato Juice
+502 Grape Juice
+503 Orange Juice
+504 Apple Juice
+505 Strawberry Milk
+506 Fruit Juice
+507 Fruit Smoothie
+508 Vegetable Juice
+509 Veggie Smoothie
+510 Mixed Juice
+511 Mixed Smoothie
+512 Ketchup
+513 Butter
+514 Gold Juice
+515 Prelude to Love
+516 Hot Juice
+607 Ice Cream
+550 Steamed Bread
+551 Cheese Bread
+552 Meat Dumpling
+553 Manju
+554 Curry Manju
+555 Steamed Gyoza
+556 Pound Cake
+557 Chocolate Sponge Cake
+558 Flan
+559 Pumpkin Flan
+560 Dumplings
+561 Pumpkin Flan of the Stars
+600 Salad
+601 Sandwich
+602 Fruit Sandwich
+603 Pickled Turnip
+604 Pickles
+605 Bamboo Rice
+608 Relax Tea Leaves
+609 Onigiri
+611 Salmon Onigiri
+612 Pickle Mix
+613 Turnip Heaven
+614 Octopus Rice
+615 Golden Octopus Rice
+650 Rice
+651 Chocolate
+652 Wine
+700 Milk (S)
+701 Milk (M)
+702 Milk (L)
+703 Egg (S)
+704 Egg (M)
+705 Egg (L)
+706 Mayonnaise
+707 Cheese
+708 Yogurt
+709 Honey
+750 Flour
+751 Oil
+752 Curry Powder
+753 Rice Flour
+2017 Heavy Spice
+2018 Sweet Powder
+2019 Sour Drop
+2020 Mixed Herbs
+
+[Weapons]
+1550 Broadsword
+1551 Steel Sword
+1552 Steel Sword+
+1553 Cutlass
+1554 Aqua Sword
+1556 Defender
+1557 Burning Sword
+1558 Gorgeous Sword
+1559 Gaia Sword
+1561 Luck Blade
+1562 Platinum Sword
+1563 Platinum Sword+
+1564 Wind Sword
+1565 Chaos Blade
+1566 Sakura
+1567 Sunspot
+1568 Durendal
+1569 Aerial Blade
+1570 Grantale
+1571 Smash Blade
+1572 Icifier
+1573 Soul Eater
+1574 Star Saber
+1575 Raventine
+1576 Dragon Slayer
+1577 Rune Blade
+1578 Gladius
+1579 Rune Legend
+1580 Back Scratcher
+1581 Spoon
+1582 Veggieblade
+1583 Plant Sword
+1584 BuffAWay
+1585 Spring Sword
+1586 Earthen Blade
+1587 Trinity Edge
+1588 Crystal Blade
+1590 Claymore
+1591 Zweihaender
+1592 Zweihaender+
+1593 Great Sword
+1594 Sea Cutter
+1595 Cyclone Blade
+1596 Poison Blade
+1597 Katzbalger
+1598 Earth Shade
+1599 Big Knife
+1600 Katana
+1601 Flame Saber
+1602 Bio Smasher
+1603 Snow Crown
+1604 Dancing Dicer
+1605 Flamberge
+1606 Flamberge+
+1607 Volcanon
+1608 Psycho
+1609 Shine Blade
+1610 Grand Smasher
+1614 Steel Slicer
+1615 Moon Shadow
+1616 BlueEyed Blade
+1617 Balmung
+1618 Braveheart
+1619 Force Element
+1620 Heaven Asunder
+1621 Caliburn
+1622 Dekash+
+1623 Daicone
+1624 Spirit Cleaver
+1625 Spring Buster Sword
+1628 Vendetta
+1629 Angel Sword
+1631 Spear
+1632 Wood Staff
+1633 Lance
+1634 Lance+
+1635 Needle Spear
+1636 Trident
+1637 Water Spear
+1638 Halberd
+1639 Corsesca
+1640 Corsesca+
+1641 Poison Spear
+1643 Heavy Lance
+1644 Feather Lance
+1645 Iceberg
+1646 Blood Lance
+1647 Magical Lance
+1648 Flare Lance
+1649 Brionac
+1650 Poison Queen
+1652 Metus
+1653 Silent Grave
+1654 Overbreak ju
+1655 Bjor
+1656 Belvarose
+1657 Gae Bolg
+1658 Dragons Fang
+1659 Gungnir
+1660 Legion
+1661 Pitchfork
+1662 Safety Lance
+1663 Pine Club
+1664 Summer Lance
+1665 Cue
+1666 Spear Axe
+1667 Maple Lance
+1695 Battle Axe
+1696 Battle Scythe
+1697 Pole Axe
+1698 Pole Axe+
+1699 Great Axe
+1700 Tomahawk
+1701 Basilisk Fang
+1702 Rock Axe
+1703 Demon Axe
+1704 Frost Axe
+1705 Crescent Axe
+1706 Crescent Axe+
+1707 Heat Axe
+1708 Double Edge
+1709 Alldale
+1710 Devil Finger
+1711 Executioner
+1712 Saint Axe
+1713 Axe
+1714 Lollipop
+1715 Summer Axe
+1716 Bloodline Axe
+1717 Dragontooth Axe
+1718 Metal Axe
+1719 Bat Axe
+1669 Battle Hammer
+1670 Bat
+1671 War Hammer
+1672 Great Hammer
+1673 Ice Hammer
+1674 Bone Hammer
+1675 Flame Hammer
+1676 Gigant Hammer
+1677 Sky Hammer
+1678 Graviton Hammer
+1679 Spiked Hammer
+1680 Crystal Hammer
+1681 Schnabel
+1682 Gigant Hammer+
+1683 Mjolnir
+1684 Fatal Crush
+1685 Splash Star
+1686 Autumn Hammer
+1687 Break Hammer
+1690 Hammer
+1691 Toy Hammer
+1764 Short Daggers
+1765 Steel Edge
+1766 Frost Edge
+1767 Iron Edge
+1768 Thief Knives
+1769 Wind Edge
+1770 Gorgeous Lx
+1771 Steel Blades
+1772 Twin Blades
+1773 Rampage
+1774 Salamander
+1775 Platinum Edge
+1776 Sonic Daggers
+1777 Chaos Edge
+1778 Desert Wind
+1779 Broken Wall
+1780 Force Divide
+1781 Heart Fire
+1782 Orcus Swords
+1783 Deep Blizzard
+1784 Dark Invitation
+1785 Priest Sabers
+1786 Efreet
+1787 Dragon Claws
+1788 Emerald Edge
+1789 Rune Edge
+1790 Twin Justice
+1792 Double Scratch
+1793 Acutorimass
+1795 Twin Dragon Swords
+1796 Autumn Swords
+1798 Leather Gloves
+1799 Brass Knuckles
+1800 Kote
+1801 Punching Gloves
+1802 Bear Claws
+1803 Fists of the Earth
+1804 Fists of Fire
+1805 Fists of Water
+1806 Dragon Claws
+1807 Fists of Dark
+1808 Fists of Wind
+1809 Fists of Light
+1810 Cat Punch
+1812 Ironleaf Fists
+1813 Caestus
+1814 Golem Punch
+1815 Hand of God
+1816 Bazal Katar
+1817 Fenrir
+1818 Twin Dragon Claws
+1819 Winter Gloves
+1820 Scratch Knuckles
+1821 Obsidian Fists
+1721 Rod
+1722 Amethyst Rod
+1723 Aquamarine Rod
+1724 Friendly Rod
+1725 LoveLove Rod
+1726 Staff
+1727 Emerald Rod
+1728 Silver Staff
+1729 Flare Staff
+1730 Ruby Rod
+1731 Sapphire Rod
+1732 Earth Staff
+1733 Lightning Wand
+1734 Ice Staff
+1735 Diamond Rod
+1736 Wizards Staff
+1737 Mages Staff
+1738 Shooting Star Staff
+1739 Hell Branch
+1740 Crimson Staff
+1741 Bubble Staff
+1742 Gaia Rod
+1743 Cyclone Rod
+1744 Storm Wand
+1745 Rune Staff
+1746 Mages Staff+
+1747 Magic Broom
+1748 Magic Shot
+1749 Hell Curse
+1750 Algernon
+1751 Sorcerers Wand
+1753 Golden Turnip Staff
+1754 Sweet Potato Staff
+1756 Syringe
+1757 Winter Rod
+1758 Devil Rod
+1759 Square Rod
+1760 Evil Dragon Staff
+1761 Judgment Staff
+1762 Harvest Moon Staff
+
+[Farming]
+900 Cheap Hoe
+901 Sturdy Hoe
+902 Seasoned Hoe
+903 Shiny Hoe
+904 Blessed Hoe
+905 Generals Hoe
+906 Cheap Waterpot
+907 Tin Waterpot
+908 Lion Waterpot
+909 Rainbow Waterpot
+910 Joy Waterpot
+911 Cheap Sickle
+912 Iron Sickle
+913 Quality Sickle
+914 Love Sickle
+915 Legendary Sickle
+916 Cheap Hammer
+917 Bronze Hammer
+918 Silver Hammer
+919 Golden Hammer
+920 Platinum Hammer
+921 Cheap Axe
+922 Chopping Axe
+923 Lumber Axe
+924 Mountain Axe
+925 Miracle Axe
+926 Cheap Pole
+927 Beginners Pole
+928 Skilled Pole
+929 Famous Pole
+930 Sacred Pole
+931 Brush
+932 Clippers
+933 Magnifying Glass
+
+[Shields]
+1000 Small Shield
+1002 Iron Shield
+1003 Monkey Plush
+1004 Round Shield
+1005 Turtle Shield
+1006 Chaos Shield
+1007 Bone Shield
+1008 Magic Shield
+1009 Heavy Shield
+1010 Platinum Shield
+1011 Kite Shield
+1012 Knight Shield
+1013 Element Shield
+1014 Magical Shield
+1015 Prism Shield
+1016 Rune Shield
+1017 Magic Plant Shield
+1018 Generals Shield
+1019 Guardian Shield
+1020 Rainbow Shield
+1021 Warrior Shield
+1022 Cheap Shield
+1023 Curse Shield
+1024 Great Shield
+1025 Platinum Shield+
+1026 Yellow Shield
+1027 Blue Shield
+
+[Accessories]
+1300 Cheap Bracelet
+1301 Bronze Bracelet
+1302 Silver Bracelet
+1303 Gold Bracelet
+1304 Platinum Bracelet
+1305 Silver Ring
+1306 Gold Ring
+1307 Platinum Ring
+1308 Shield Ring
+1309 Critical Ring
+1310 Silent Ring
+1311 Paralysis Ring
+1312 Poison Ring
+1313 Magic Ring
+1314 Throwing Ring
+1316 StayUp Ring
+1317 Engagement Ring
+1318 Aquamarine Ring
+1319 Amethyst Ring
+1320 Emerald Ring
+1321 Sapphire Ring
+1322 Ruby Ring
+1323 Cursed Ring
+1324 Diamond Ring
+1326 Aquamarine Brooch
+1327 Amethyst Brooch
+1328 Emerald Brooch
+1329 Sapphire Brooch
+1330 Ruby Brooch
+1331 Diamond Brooch
+1332 Dolphin Brooch
+1333 Fire Ring
+1334 Wind Ring
+1335 Water Ring
+1336 Earth Ring
+1337 Happy Ring
+1338 Silver Pendant
+1339 Star Pendant
+1340 Sun Pendant
+1341 Field Pendant
+1342 Dew Pendant
+1343 Earth Pendant
+1344 Heart Pendant
+1345 Strange Pendant
+1346 Anettes Necklace
+1347 Work Gloves
+1348 Sturdy Gloves
+1349 Power Gloves
+1350 Focus Earrings
+1351 Witch Earrings
+1352 Magic Earrings
+1353 Charm
+1354 Holy Amulet
+1355 Rosary
+1356 Talisman
+1357 Magic Charm
+1358 Leather Belt
+1359 Lucky Strike
+1360 Champ Belt
+1361 HandKnit Scarf
+1362 Fluffy Scarf
+1363 Heros Proof
+1364 Proof of Wisdom
+1365 Art of Attack
+1366 Art of Defense
+1367 Art of Magic
+1368 Courage Badge
+
+[Headgear]
+1101 Blue Ribbon
+1102 Green Ribbon
+1103 Purple Ribbon
+1104 Summer Headdress
+1105 Spectacles
+1106 Straw Hat
+1107 Fancy Hat
+1108 Brand Glasses
+1110 Intelligent Glasses
+1112 Black Ribbon
+1114 Silk Hat
+1116 Yellow Ribbon
+1117 Autumn Headdress
+1118 Cat Ears
+1119 Red Ribbon
+1120 Spring Headdress
+1121 Orange Ribbon
+1122 Winter Headdress
+1123 White Ribbon
+1124 Four Seasons Headdress
+1126 Indigo Ribbon
+1127 Crown
+1128 Turnip Headgear
+1129 Pumpkin Headgear
+1130 Generals Hat
+1315 Silver Hairpin
+1325 Gold Hairpin
+
+[Footwear]
+1250 Leather Boots
+1251 CheepCheep Sandals
+1252 Secret Shoes
+1253 Silver Boots
+1254 Heavy Boots
+1255 Sneaking Boots
+1256 Gold Boots
+1257 Bone Boots
+1258 Strider Boots
+1259 StepIn Boots
+1260 Feather Boots
+1261 Ghost Boots
+1262 Iron Geta
+1263 Knight Boots
+1264 Fairy Boots
+1265 Rocket Wing
+1266 Spiked Shoes
+
+[Armor]
+1200 Shirt
+1201 Vest
+1202 Cotton Cloth
+1203 Mail
+1204 Chain Mail
+1205 Scale Vest
+1206 Sparkling Shirt
+1207 Wind Cloak
+1208 Protector
+1209 Platinum Mail
+1210 Lamellar Vest
+1211 Mercenarys Cloak
+1212 Wooly Shirt
+1213 Elvish Cloak
+1214 Dragon Cloak
+1215 Power Protector
+1216 Rune Vest
+1217 Royal Garter
+1218 Four Dragons Vest
+1219 Generals Robe
+1220 Rubber Poncho
+
+[Seeds]
+800 Turnip Seed
+801 Potato Seed
+802 Cucumber Seed
+803 Strawberry Seed
+804 Cabbage Seed
+805 Moondrop Seed
+806 Toyherb Seed
+807 Tomato Seed
+808 Corn Seed
+809 Onion Seed
+810 Pumpkin Seed
+811 Pineapple Seed
+812 Pink Cat Seed
+813 Eggplant Seed
+814 Carrot Seed
+815 Yam Seed
+816 Spinach Seed
+817 Green Pepper Seed
+818 Charm Blue Seed
+819 Fodder Seed
+820 Cherry Grass Seed
+821 Lamp Grass Seed
+822 Blue Crystal Flower Seed
+823 Emery Flower Seed
+824 Ironleaf Seed
+825 Clover Seed
+826 Fireflower Seed
+827 Green Crystal Flower Seed
+828 Noel Grass Seed
+829 Autumn Grass Seed
+830 PomPom Grass Seed
+831 Red Crystal Flower Seed
+832 White Crystal Flower Seed
+833 Pink Turnip Seed
+834 Radish Seed
+835 Leek Seed
+836 Bok Choy Seed
+837 Golden Cabbage Seed
+838 Golden Pumpkin Seed
+839 Golden Potato Seed
+840 Golden Turnip Seed
+841 Pink Melon Seed
+842 HotHot Seed
+843 Apple Tree Seed
+844 Orange Tree Seed
+845 Grape Tree Seed
+846 Twinkle Seed
+848 Sword Seed
+849 Shield Seed
+850 Starfall Seed
+
+[Nutrients]
+2100 Wettable Powder
+2101 Greenifier
+2102 Greenifier+
+2103 Formula A
+2104 Formula B
+2105 Formula C
+2106 No Rot a
+2107 No Rot b
+2108 Giantizer
+2109 Minimizer
+
+[Magic]
+1401 Fireball
+1402 Inferno
+1403 Explosion
+1404 Gatling Comet
+1405 Water Laser
+1406 Parallel Laser
+1407 Delta Laser
+1408 Impact Laser
+1409 Rock Screw
+1410 Earth Spike
+1411 Avenger Rock
+1412 Grand Spike
+1413 Sonic Wind
+1414 Double Sonic
+1415 Sonic Ricochet
+1416 Sonic Storm
+1417 Light Barrier
+1418 Shine
+1419 Prism
+1420 Sparkle
+1421 Dark Ball
+1422 Dark Snake
+1423 Darkness
+1424 Dark Absorber
+1425 Cure
+1426 Cure All
+1427 Master Cure
+1428 Medipoison
+1429 Mediparalyze
+1430 Mediseal
+1432 Greeting Spell
+
+[Rune Abiltity]
+1433 Power Wave
+1434 Dash Slash
+1435 Rush Attack
+1436 Round Break
+1437 Mind Thrust
+1439 Gust
+1440 Storm
+1441 Blitz
+1442 Twin Attack
+1443 Rail Strike
+1445 Wind Slash
+1446 Flash Strike
+1447 Naive Blade
+1448 Steel Heart
+1449 Delta Strike
+1451 Hurricane
+1452 Reaper Slash
+1453 Millionstrike
+1454 Axel Disaster
+1455 Thousand Thrusts
+1457 Stardust Upper
+1458 Tornado Swing
+1459 Grand Impact
+1460 Giga Swing
+1461 Terra Swing
+1463 Uppercut
+1464 Double Kick
+1465 Straight Punch
+1466 Stun Clap
+1467 Rush Punch
+1468 Cyclone
+1469 Rapid Move
+1471 Bonus Concerto
+1472 Striking March
+1473 Iron Waltz
+
+[Collectible]
+2151 Scrap Metal
+2152 Iron
+2153 Scrap Metal+
+2154 Bronze
+2155 Silver
+2156 Gold
+2157 Platinum
+2158 Orichalcum
+2159 Dragonic Stone
+2160 Amethyst
+2161 Aquamarine
+2162 Emerald
+2163 Ruby
+2164 Sapphire
+2165 Diamond
+2166 Green Core
+2167 Red Core
+2168 Yellow Core
+2169 Blue Core
+2170 Crystal Skull
+2171 10 Tenfold Steel
+2172 Double Steel
+2173 Glitta Augite
+2175 Light Ore
+2176 Rune Sphere Shard
+2177 Shade Stone
+2178 White Stone
+2179 Magic Crystal
+2180 Dark Crystal
+2181 Fire Crystal
+2182 Earth Crystal
+2183 Love Crystal
+2184 Wind Crystal
+2185 Water Crystal
+2186 Light Crystal
+2187 Small Crystal
+2188 Big Crystal
+2189 Rune Crystal
+2190 Electro Crystal
+2191 Stick
+2192 Insect Horn
+2193 Plant Stem
+2194 Bulls Horn
+2195 Moving Branch
+2196 Rigid Horn
+2197 Thick Stick
+2198 Devil Horn
+2199 Glue
+2200 Devil Blood
+2201 Paralysis Poison
+2202 Poison King
+2203 Birds Feather
+2204 Yellow Feather
+2205 Black Feather
+2206 Thunderbird Feather
+2209 Fish Fossil
+2210 Dragon Bones
+2211 Skull
+2213 Ammonite
+2214 Round Stone
+2215 Tiny Golem Stone
+2216 Golem Stone
+2217 Golem Tablet
+2218 Golem Spirit Stone
+2219 Tablet of Truth
+2220 Yarn
+2221 Old Bandage
+2223 Spiders Thread
+2225 Vine
+2227 Strong Vine
+2228 Pretty Thread
+2230 Arrowhead
+2231 Blade Shard
+2232 Broken Hilt
+2233 Broken Box
+2234 Hammer Piece
+2235 Shoulder Piece
+2238 Glistening Blade
+2239 Great Hammer Shard
+2242 MTGU Plate
+2243 Pirates Armor
+2245 Fur (S)
+2246 Fur
+2247 Yellow Down
+2248 Quality Fur
+2250 Quality Puffy Fur
+2251 Fur (M)
+2252 Wooly Furball
+2253 Fur (L)
+2254 Penguin Down
+2257 Chest Hair
+2258 Spore
+2259 Fairy Dust
+2260 Gunpowder
+2261 Poison Powder
+2262 Holy Spore
+2263 Root
+2264 Magic Powder
+2265 Mysterious Powder
+2266 Dragon Golem Ashes
+2267 Magic Elixir
+2268 Red Dragon Ashes
+2269 Fairy Elixir
+2272 Melody Bottle
+2273 Cheap Cloth
+2274 Insect Carapace
+2275 Ghost Hood
+2276 Pretty Carapace
+2277 Quality Cloth
+2278 Quality Worn Cloth
+2279 Silk Cloth
+2280 Giants Gloves
+2281 Blue Giants Glove
+2282 Ancient Orc Cloth
+2283 Insect Jaw
+2284 Panther Claw
+2285 Wolf Fang
+2286 Palm Claw
+2287 Giants Nail
+2289 Ivory Tusk
+2290 Big Giants Nail
+2291 Unbroken Ivory Tusk
+2294 Gold Wolf Fang
+2296 Magic Claw
+2297 Dragon Fang
+2298 Malm Claw
+2300 Dangerous Scissors
+2302 Wet Scale
+2303 Dragon Scale
+2304 Black Scale
+2305 Blue Scale
+2306 Glitter Scale
+2307 Crimson Scale
+2308 Love Scale
+2309 Grimoire Scale
+2311 Dragon Golem Scale
+2312 Basilisk Scale
+2315 Big Birds Comb
+2318 Warriors Proof
+2319 Proof of Rank
+2321 Ice Crystal
+2322 Sharp Horn
+2323 Lightning Horn
+2324 Lotus Leaf
+2325 Viscous Liquid
+2326 Brilliant Feather
+2327 Ancient Fish Fin
+2328 Black Furball
+2329 Strange Tentacle
+2330 Fluffy Tail
+2331 Black Shoulder Guard
+2332 NineTailed Fox Bell
+2333 Armor Fragment
+2334 Rusted Iron
+2335 Fine Green Fur
+2336 Crimson Fur
+2337 Crimson Claw
+2338 Strong Talon
+2339 Spider Jaw
+2340 Quality Insect Jaw
+2341 Razor Fang
+2342 Sharp Claw
+2343 Scarlet Dragon Claw
+2344 Golden Dragon Claw
+2345 Hard Scale
+2346 Mermaid Scale
+2347 Scarlet Scale
+2348 Golden Scale
+2349 Generals Orb
+2350 Null Symbol
+2351 Azure Fur
+2352 HighQuality Squid Ink
+2353 JetBlack Talon
+2354 Immortal Dragon Claw
+2355 Gale Down
+2356 Cloud Fur
+2357 Iron Fragment
+2358 Brilliant Scale
+2359 Crimson Feather
+2360 Frigid Feather
+2361 Mystic Dust
+2400 Gaia Crystal
+2401 Ignis Crystal
+2402 Glacies Crystal
+2403 Ventus Crystal
+2404 Terra Crystal
+2405 Gaia Crystal Fragment
+2406 Ignis Crystal Fragment
+2407 Glacies Crystal Fragment
+2408 Ventus Crystal Fragment
+2409 Terra Crystal Fragment
+
+[Fish]
+1850 Masu Trout
+1851 Squid
+1852 Taimen
+1853 Sardine
+1854 Char
+1855 Chub
+1856 Glitter Snapper
+1857 Skipjack
+1858 Turbot
+1859 Gibelio
+1860 Salmon
+1861 Mackerel
+1862 Needlefish
+1863 Pike
+1864 Sunsquid
+1865 Shrimp
+1866 Snapper
+1867 Throbby Snapper
+1868 Rainbow Trout
+1869 Flounder
+1870 Blowfish
+1871 Yellowtail
+1872 Crucian Carp
+1873 Tuna
+1874 Girella
+1875 Autumn Flounder
+1876 Cherry Salmon
+1877 Lamp Squid
+1878 Lobster
+1879 Pond Smelt
+1880 Sand Flounder
+1881 Rockfish
+1882 Golden Salmon
+1883 Golden Octopus
+1884 Sunfish
+1885 Seerfish
+1886 Octopus
+1887 Marlin
+1888 Cutlassfish
+1889 Abalone
+1890 Splendid Alfonsino
+1891 Red King Crab
+
+[Other]
+1900 Can
+1901 Boot
+1902 Rare Can
+1500 Rock
+1501 Branch
+1502 Lumber
+1503 Material Stone
+
+[Recipe Bread]
+1950 Chemistry Bread
+1951 Chemistry Bread+
+1952 Cooking Bread
+1953 Cooking Bread+
+1954 Weapon Bread
+1955 Weapon Bread+
+1956 Crafting Bread
+1957 Crafting Bread+
+1958 Farming Bread
+1959 Farming Bread+
+
+3000 Minerals
+3001 Liquids
+3002 Claws and Fangs
+3003 Sticks and Stems
+3004 Cloths and Skins
+3005 Furs
+3006 Strings
+3007 Shards
+3008 Powders and Spores
+3009 Scales
+3010 Shells and Bones
+3011 Stones
+3012 Turnips
+3013 Crystals
+3014 Jewels
+3015 Feathers
+3016 Jams
+3017 Curries
+3018 Squids
+3019 Eggs
+3020 Dairy
+3021 Mushrooms
