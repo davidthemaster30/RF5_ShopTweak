@@ -1,4 +1,4 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 using RF5SHOP;
 
 namespace RF5_ShopTweak;
