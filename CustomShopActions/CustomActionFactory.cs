@@ -55,13 +55,14 @@ internal static class CustomActionFactory
         internal ItemID ItemId { get; init; }
         internal int itemLv { get; init; }
         internal ItemID ReplacedItemId { get; init; }
+        internal int Prices { get; init; } = 100;
         public static ShopItem ToShopItem(ParsedItem item)
         {
             return new ShopItem
             {
                 ItemId = item.ItemId,
                 itemLv = item.itemLv,
-                prices = 100
+                prices = item.Prices
             };
         }
 
@@ -78,6 +79,7 @@ internal static class CustomActionFactory
         {
             int replacedItemId = -1;
             int level = 1;
+            int prices = 100;
             string[]? parts;
 
             if (itemString.IndexOf('=') != -1)
@@ -102,16 +104,24 @@ internal static class CustomActionFactory
                 continue;
             }
 
-            if (parts.Length == 2 && !int.TryParse(parts[1], out level))
+            if (parts.Length >= 2 && !int.TryParse(parts[1], out level))
             {
                 ShopTweakPlugin.Log.LogWarning($"Couldn't parse itemLevel : {itemString}");
+
+                if (parts.Length == 3 && !int.TryParse(parts[2], out prices))
+                {
+                    ShopTweakPlugin.Log.LogWarning($"Couldn't parse prices : {itemString}");
+                }
             }
+
+
 
             parsedItems.Add(new ParsedItem
             {
                 ItemId = (ItemID)id,
                 itemLv = level,
-                ReplacedItemId = (ItemID)replacedItemId
+                ReplacedItemId = (ItemID)replacedItemId,
+                Prices = prices
             });
         }
 
