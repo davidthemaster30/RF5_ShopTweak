@@ -82,7 +82,7 @@ internal static class IniParser
 				}
 				else
 				{
-					ShopTweakPlugin.Log.LogDebug($"currentNpcShopType [{currentNpcShopType}] has no actions.");
+					ShopTweakPlugin.Log.LogWarning($"currentNpcShopType [{currentNpcShopType}] has no actions.");
 				}
 			}
 		}
@@ -116,7 +116,7 @@ internal static class IniParser
 
 			if (myState.currentNpcShopType is null)
 			{
-				ShopTweakPlugin.Log.LogDebug($"Invalid ini format. Missing shop type before line: {trimmedLine}");
+				ShopTweakPlugin.Log.LogWarning($"Invalid ini format. Missing shop type before line: {trimmedLine}");
 				continue;
 			}
 

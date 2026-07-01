@@ -7,6 +7,7 @@ internal class CustomShopReplaceItemAction : ICustomShopPageAction
 {
     private readonly ItemID _oldItem;
     private readonly int _pageNumber;
+    private int _pageIndex => _pageNumber - 1;
     private readonly ShopItem _shopItem;
     public override string ToString()
     {
@@ -30,20 +31,20 @@ internal class CustomShopReplaceItemAction : ICustomShopPageAction
 
     public void Apply(ref NpcShopTable shop)
     {
-        if (shop is null || shop.ShopCatalogPages.Count <= 0 || _pageNumber >= shop.ShopCatalogPages.Count)
+        if (shop is null || shop.ShopCatalogPages.Count <= 0 || _pageNumber > shop.ShopCatalogPages.Count)
         {
             return;
         }
 
-        var index = shop.ShopCatalogPages[_pageNumber].GetIndexOf(_oldItem);
+        var index = shop.ShopCatalogPages[_pageIndex].GetIndexOf(_oldItem);
 
         if (index == -1)
         {
-            ShopTweakPlugin.Log.LogDebug($"RemoveItem could not find itemId:{(int)_oldItem} to replace in page:{_pageNumber + 1}");
+            ShopTweakPlugin.Log.LogWarning($"ReplaceItem could not find itemId:{(int)_oldItem} to replace in page:{_pageNumber }");
             return;
         }
 
-        ShopItem shopItem = shop.ShopCatalogPages[_pageNumber].shopItems[index];
+        ShopItem shopItem = shop.ShopCatalogPages[_pageIndex].shopItems[index];
 
         shopItem.ItemId = _shopItem.ItemId;
         shopItem.conditions?.Clear();
@@ -52,6 +53,6 @@ internal class CustomShopReplaceItemAction : ICustomShopPageAction
         shopItem.itemLv = _shopItem.itemLv;
         shopItem.prices = _shopItem.prices;
 
-        ShopTweakPlugin.Log.LogDebug($"Apply ReplaceItem page:{_pageNumber}, oldItemId:{_oldItem}, newItemId:{_shopItem.ItemId}, itemLv:{shopItem.itemLv}, prices:{shopItem.prices}");
+        ShopTweakPlugin.Log.LogInfo($"Apply ReplaceItem page:{_pageNumber}, oldItemId:{_oldItem}, newItemId:{_shopItem.ItemId}, itemLv:{shopItem.itemLv}, prices:{shopItem.prices}");
     }
 }

@@ -6,6 +6,7 @@ internal class CustomShopRemoveItemAction : ICustomShopPageAction
 {
     private readonly ItemID _itemID;
     private readonly int _pageNumber;
+    private int _pageIndex => _pageNumber - 1;
     public override string ToString()
     {
         return $"CustomShopRemoveItemAction Remove {_itemID}({(int)_itemID}) on page {_pageNumber}";
@@ -19,21 +20,21 @@ internal class CustomShopRemoveItemAction : ICustomShopPageAction
 
     public void Apply(ref NpcShopTable shop)
     {
-        if (shop is null || shop.ShopCatalogPages.Count <= 0 || _pageNumber >= shop.ShopCatalogPages.Count)
+        if (shop is null || shop.ShopCatalogPages.Count <= 0 || _pageNumber > shop.ShopCatalogPages.Count)
         {
             return;
         }
 
-        var index = shop.ShopCatalogPages[_pageNumber].GetIndexOf(_itemID);
+        var itemIndex = shop.ShopCatalogPages[_pageIndex].GetIndexOf(_itemID);
 
-        if (index == -1)
+        if (itemIndex == -1)
         {
-            ShopTweakPlugin.Log.LogDebug($"RemoveItem could not find itemId:{(int)_itemID} to remove in page:{_pageNumber + 1}");
+            ShopTweakPlugin.Log.LogWarning($"RemoveItem could not find itemId:{(int)_itemID} to remove in page:{_pageNumber}");
             return;
         }
 
-        shop.ShopCatalogPages[_pageNumber].shopItems.RemoveAt(index);
-        ShopTweakPlugin.Log.LogDebug($"Apply RemoveItem page:{_pageNumber + 1}, itemId:{(int)_itemID}");
+        shop.ShopCatalogPages[_pageIndex].shopItems.RemoveAt(itemIndex);
+        ShopTweakPlugin.Log.LogInfo($"Apply RemoveItem page:{_pageNumber}, itemId:{(int)_itemID}");
     }
 
 }

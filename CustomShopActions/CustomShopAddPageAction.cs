@@ -122,14 +122,12 @@ internal class CustomShopAddPageAction : ICustomShopPageAction
 
         if (_page.name != Empty)
         {
-            ShopTweakPlugin.Log.LogDebug($"Apply NewPage page hashcode:{_page.GetHashCode()}");
-
             AddShopCatalogPage(shop.ShopCatalogPages, _page);
             if (shop.ShopNpcTalks.Count > 0)
             {
                 shop.ShopNpcTalks.Add(shop.ShopNpcTalks[0]);
             }
-            ShopTweakPlugin.Log.LogDebug($"Apply NewPage page:{shop.ShopCatalogPages.Count}, pageName:{_page.name} with {_page.shopItems.Count} items");
+            ShopTweakPlugin.Log.LogInfo($"Apply NewPage page:{shop.ShopCatalogPages.Count}, pageName:{_page.name} with {_page.shopItems.Count} items");
         }
     }
 }
