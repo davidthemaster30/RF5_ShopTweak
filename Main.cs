@@ -29,9 +29,9 @@ public class ShopTweakPlugin : BasePlugin
 
 		new Harmony(MyPluginInfo.PLUGIN_GUID).PatchAll();
 
-		//Harmony.CreateAndPatchAll(typeof(ShopDataTableHandler));
+		Harmony.CreateAndPatchAll(typeof(ShopDataTableHandler));
 		Harmony.CreateAndPatchAll(typeof(ShopDataTableChangePage));
-		//Harmony.CreateAndPatchAll(typeof(UIShopControllerChangePage));
+
 		Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION} is loaded!");
 	}
 }
