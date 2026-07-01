@@ -1,8 +1,5 @@
 ﻿using HarmonyLib;
 using RF5SHOP;
-using Define;
-using UnityEngine;
-using UnityEngine.Events;
 
 namespace RF5_ShopTweak;
 

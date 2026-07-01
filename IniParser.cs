@@ -91,7 +91,7 @@ internal static class IniParser
 	internal static List<CustomShop> ParseFile(string fileName)
 	{
 		var myState = new State();
-		
+
 		string currentNewPageName = string.Empty;
 
 		foreach (var line in File.ReadLines(fileName))

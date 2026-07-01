@@ -24,7 +24,7 @@ internal sealed class DeferredListProcessor
     }
 
     internal void Enqueue(System.Collections.Generic.List<ICustomShopPageAction> actions)
-    { 
+    {
         ShopTweakPlugin.Log.LogDebug($"Enqueueing {actions.Count}");
 
         foreach (var action in actions)

@@ -9,7 +9,7 @@ internal record CustomShop
     internal float PriceMultiplier { get; set; } = 1;
     public override string ToString()
     {
-        return $"CustomShop {{ NpcShopType {ShopType} with {ShopTweaks.ToString()} and PriceMultiplier {PriceMultiplier} }}";
+        return $"CustomShop {{ NpcShopType {ShopType} with PriceMultiplier {PriceMultiplier} and {ShopTweaks.ToString()} }}";
     }
 }
 

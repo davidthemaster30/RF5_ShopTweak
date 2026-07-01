@@ -10,7 +10,6 @@ namespace RF5_ShopTweak;
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 [BepInProcess(GAME_PROCESS)]
 public class ShopTweakPlugin : BasePlugin
-public class ShopTweakPlugin : BasePlugin
 {
 	internal static List<CustomShop> Shops { get; private set; } = new();
 	internal static new ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource("ShopTweak");
