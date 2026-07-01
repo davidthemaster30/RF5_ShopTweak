@@ -33,7 +33,7 @@ internal static class IniParser
 		else
 		{
 			ShopTweakPlugin.Log.LogWarning($"Bad PriceMultiplier in ini file : {value}");
-			return 1;
+			return -1.0f;
 		}
 	}
 
