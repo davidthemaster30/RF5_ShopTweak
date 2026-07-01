@@ -1,10 +1,6 @@
 using RF5SHOP;
 using System.Text;
-using Il2CppSystem;
-using Il2CppSystem.Collections.Generic;
 using Il2CppInterop.Runtime;
-using Il2CppInterop.Runtime.Injection;
-using Il2CppSystem;
 
 namespace RF5_ShopTweak;
 
@@ -45,9 +41,11 @@ internal class CustomShopAddPageAction : ICustomShopPageAction
             _shopItems.Add(Clone(item));
         }
 
-        var new_page = CreateShopCatalogPage();
-        new_page.name = page.name;
-        new_page.shopItems = _shopItems;
+        var new_page = new ShopCatalogPage
+        {
+            name = page.name,
+            shopItems = _shopItems
+        };
 
         return new_page;
     }
@@ -61,9 +59,11 @@ internal class CustomShopAddPageAction : ICustomShopPageAction
             _shopItems.Add(Clone(item));
         }
 
-        var new_page = CreateShopCatalogPage(shop);
-        new_page.name = page.name;
-        new_page.shopItems = _shopItems;
+        var new_page = new ShopCatalogPage
+        {
+            name = page.name,
+            shopItems = _shopItems
+        };
 
         return new_page;
     }
@@ -78,21 +78,6 @@ internal class CustomShopAddPageAction : ICustomShopPageAction
         };
     }
 
-    public static ShopCatalogPage CreateShopCatalogPage(NpcShopTable shop)
-    {
-        // Borrow a valid native struct pointer from an existing page
-        var existingPage = shop.ShopCatalogPages[0];
-        System.IntPtr existingPtr = IL2CPP.Il2CppObjectBaseToPtrNotNull(existingPage);
-
-        // Unbox to get the raw struct pointer
-        System.IntPtr rawStructPtr = IL2CPP.il2cpp_object_unbox(existingPtr);
-
-        // Box a copy of it — same size, same layout, guaranteed valid
-        System.IntPtr newBoxed = IL2CPP.il2cpp_value_box(Il2CppClassPointerStore<ShopCatalogPage>.NativeClassPtr, rawStructPtr);
-
-        return new ShopCatalogPage(newBoxed);
-    }
-
     internal CustomShopAddPageAction(string name, Il2CppSystem.Collections.Generic.List<ShopItem> items)
     {
         if (items is null || items.Count <= 0)
@@ -101,19 +86,11 @@ internal class CustomShopAddPageAction : ICustomShopPageAction
             return;
         }
 
-        _page = CreateShopCatalogPage();
-        _page.name = name;
-        _page.shopItems = items;
-    }
-
-    public static ShopCatalogPage CreateShopCatalogPage()
-    {
-        unsafe
+        _page = new ShopCatalogPage
         {
-            byte* stackPtr = stackalloc byte[(int)(uint)IL2CPP.il2cpp_class_value_size(Il2CppClassPointerStore<ShopCatalogPage>.NativeClassPtr, ref *(uint*)null)];
-            var boxed = IL2CPP.il2cpp_value_box(Il2CppClassPointerStore<ShopCatalogPage>.NativeClassPtr, (System.IntPtr)stackPtr);
-            return new ShopCatalogPage(boxed);
-        }
+            name = name,
+            shopItems = items
+        };
     }
 
     public static unsafe void AddShopCatalogPage(Il2CppSystem.Collections.Generic.List<ShopCatalogPage> list, ShopCatalogPage page)
@@ -145,23 +122,14 @@ internal class CustomShopAddPageAction : ICustomShopPageAction
 
         if (_page.name != Empty)
         {
-            var clonedpage = Clone(_page, shop);
             ShopTweakPlugin.Log.LogDebug($"Apply NewPage page hashcode:{_page.GetHashCode()}");
-            ShopTweakPlugin.Log.LogDebug($"Apply NewPage typeof(ShopCatalogPage).IsValueType:{typeof(ShopCatalogPage).IsValueType}");
-            ShopTweakPlugin.Log.LogDebug($"Apply NewPage Adding page:{this.ToString()}");
-            //shop.ShopCatalogPages.Add(clonedpage);
-            AddShopCatalogPage(shop.ShopCatalogPages, clonedpage);
+
+            AddShopCatalogPage(shop.ShopCatalogPages, _page);
             if (shop.ShopNpcTalks.Count > 0)
             {
                 shop.ShopNpcTalks.Add(shop.ShopNpcTalks[0]);
             }
             ShopTweakPlugin.Log.LogDebug($"Apply NewPage page:{shop.ShopCatalogPages.Count}, pageName:{_page.name} with {_page.shopItems.Count} items");
-
-            // Check if the added page is still intact on the native side, this is crashing
-            var addedPage = shop.ShopCatalogPages[shop.ShopCatalogPages.Count - 1];
-            ShopTweakPlugin.Log.LogDebug($"Added page hashcode: {addedPage.GetHashCode()}");
-            ShopTweakPlugin.Log.LogDebug($"Same object? {ReferenceEquals(_page, addedPage)}");
-            ShopTweakPlugin.Log.LogDebug($"Items count after add: {addedPage.shopItems?.Count ?? -1}");
         }
     }
 }
