@@ -1,4 +1,10 @@
-Shop type
+The format to add actions are in a "action#=ItemID+Lv+Price" format, 
+where "action" is self-described, 
+"#" is the targeted page and 
+ItemID+Lv+Price specifies the desired Item by it's ingame "ItemID" (see ItemIDs), the desired Level (1-10) and the Price discount desired, applied as a percentage (ex: 50 => 50 / 100 = 1/2 price)
+Lv and Price are optional and will default to Level 1 and Price 100 if unspecified
+
+First, choose a shop type:
 [VarietyShop]
 [BlacksmithShop]
 [Restaurent]
@@ -8,76 +14,83 @@ Shop type
 [VarietyShop2]
 [CrystalShop2]
 [BlacksmithShop2]
----
+
+
+Then decide if you want to:
+    - Add items to an existing page (AddItem)
+    - Replace items in an existing page (ReplaceItem)
+    - Remove items from an existing page (RemoveItem)
+    - Add a whole new page (NewPageName + NewPage)
+        - Start with a NewPageName#, followed by NewPage#
+        - NewPageName can only use the text predefined by the ingame UITextDic.DICID, other names will display blank
+        - Many pages can be added, as definded by the #
+All the actions can be combined together under the same shop.
+Each action has to be followed by a number, representing the targeted page.
+
+Examples:
 Add items to existing pages
 [BlacksmithShop2]
-AddItem1=ItemID, ...
-The number 1 in AddItem1 indicates the page number
-Allows setting the item level using the ItemID+Lv form, example:
-[BlacksmithShop2]
-AddItem1=1502+2
-Indicates the addition of Lumber Lv2 to the Blacksmith Ore Shop
----
+AddItem1=1502+2+50
+Indicates the addition of Lumber Lv2 to the Blacksmith Ore Shop, with a 50% discount (multiplicative with PriceMultiplier!)
+
 Replace existing items
-[BlacksmithShop2]
-ReplaceItem1=OldItemID=NewItemID, ...
-The number 1 in ReplaceItem1 indicates the page number
-Allow setting new item levels using the NewItemID+Lv form, example:
 [BlacksmithShop2]
 ReplaceItem1=2152=2171+6
 Replace Iron with Tenfold Steel Lv6 on page 1 of the Blacksmith Shop Ore Shop
----
+
 Remove Existing Items
 [BlacksmithShop2]
-RemoveItem1=ItemID, ...
-The number 1 in RemoveItem1 indicates the page number
-example:
-[BlacksmithShop2]
 RemoveItem1=2152
-Remove Iron item from Blacksmith Shop Ore Shop
----
+Remove Iron item from Blacksmith Shop Ore Shop from page 1
+
 Add new page
 [BlacksmithShop2]
-NewPageName1=Title
-NewPage1=ItemID, ...
-The number 1 in NewPageName1 and NewPage1 indicates the order of the pages appended to the end
-NewPageName1 can only use the text predefined by UITextDic.DICID, other text will be displayed blank
-Allows setting the item level using the ItemID+Lv form, example:
-[BlacksmithShop2]
 NewPageName1=SHOPCAT_Blacksmith_Stone_00
-NewPage1=1502+4
-Indicates the addition of Lumber Lv4 to the Blacksmith Ore Shop
-Add a new page to the Blacksmith Shop Ore Shop, containing Lumber Lv5
+NewPage1=1502+4,1502+10
+NewPageName2=SHOPCAT_Blacksmith_Stone_00
+NewPage2=1503+10
+Indicates the addition of Lumber Lv4 and Lumber Lv10 to the Blacksmith Ore Shop in the first new page, and adding Lv10 Material Stone to the second new page
+
+Combine them all together
+[BlacksmithShop2]
+AddItem1=1502+2+50
+RemoveItem1=2152
+ReplaceItem1=2152=2171+6
+NewPageName1=SHOPCAT_Blacksmith_Stone_00
+NewPage1=1502+4,1502+10
+NewPageName2=SHOPCAT_Blacksmith_Stone_00
+NewPage2=1503+10
+
 ---
 UITextDic.DICID
-public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_00 = 5013;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_01 = 5014;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_02 = 5015;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_03 = 5016;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Wapon_04 = 5017;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Acce_00 = 5018;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Acce_01 = 5019;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Arm_00 = 5020;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Arm_01 = 5021;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Tool_00 = 5022;
-public const UITextDic.DICID SHOPCAT_BlackSmith_Tool_01 = 5023;
-public const UITextDic.DICID SHOPCAT_Blacksmith_Stone_00 = 5024;
-public const UITextDic.DICID SHOPCAT_Variety_Seed_00 = 5025;
-public const UITextDic.DICID SHOPCAT_Variety_Seed_01 = 5026;
-public const UITextDic.DICID SHOPCAT_Variety_Dekiai_00 = 5027;
-public const UITextDic.DICID SHOPCAT_Variety_Vesi_00 = 5028;
-public const UITextDic.DICID SHOPCAT_Variety_Fish_00 = 5029;
-public const UITextDic.DICID SHOPCAT_Restaurent_Cook_00 = 5030;
-public const UITextDic.DICID SHOPCAT_CrystalShop_Magic_00 = 5031;
-public const UITextDic.DICID SHOPCAT_CrystalShop_Magic_01 = 5032;
-public const UITextDic.DICID SHOPCAT_CrystalShop_RA_00 = 5033;
-public const UITextDic.DICID SHOPCAT_CrystalShop_RA_01 = 5034;
-public const UITextDic.DICID SHOPCAT_CrystalShop_Jem_00 = 5035;
-public const UITextDic.DICID SHOPCAT_CrystalShop_Koueki_00 = 5036;
-public const UITextDic.DICID SHOPCAT_Hospital_Drag_00 = 5037;
-public const UITextDic.DICID SHOPCAT_FlowerShop_Seed_00 = 5038;
-public const UITextDic.DICID SHOPCAT_FlowerShop_Eiyouzai_00 = 5039;
-public const UITextDic.DICID SHOPCAT_FlowerShop_Flower_00 = 5040;
-public const UITextDic.DICID SHOPCAT_Builder_00 = 5041;
-public const UITextDic.DICID SHOPCAT_Furniture_00 = 5042;
-public const UITextDic.DICID SHOPCAT_DUMMY = 5043;
+SHOPCAT_BlackSmith_Wapon_00
+SHOPCAT_BlackSmith_Wapon_01
+SHOPCAT_BlackSmith_Wapon_02
+SHOPCAT_BlackSmith_Wapon_03
+SHOPCAT_BlackSmith_Wapon_04
+SHOPCAT_BlackSmith_Acce_00
+SHOPCAT_BlackSmith_Acce_01
+SHOPCAT_BlackSmith_Arm_00
+SHOPCAT_BlackSmith_Arm_01
+SHOPCAT_BlackSmith_Tool_00
+SHOPCAT_BlackSmith_Tool_01
+SHOPCAT_Blacksmith_Stone_00
+SHOPCAT_Variety_Seed_00
+SHOPCAT_Variety_Seed_01
+SHOPCAT_Variety_Dekiai_00
+SHOPCAT_Variety_Vesi_00
+SHOPCAT_Variety_Fish_00
+SHOPCAT_Restaurent_Cook_00
+SHOPCAT_CrystalShop_Magic_00
+SHOPCAT_CrystalShop_Magic_01
+SHOPCAT_CrystalShop_RA_00
+SHOPCAT_CrystalShop_RA_01
+SHOPCAT_CrystalShop_Jem_00
+SHOPCAT_CrystalShop_Koueki_00
+SHOPCAT_Hospital_Drag_00
+SHOPCAT_FlowerShop_Seed_00
+SHOPCAT_FlowerShop_Eiyouzai_00
+SHOPCAT_FlowerShop_Flower_00
+SHOPCAT_Builder_00
+SHOPCAT_Furniture_00
+SHOPCAT_DUMMY
