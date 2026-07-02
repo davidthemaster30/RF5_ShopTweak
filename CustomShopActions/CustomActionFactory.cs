@@ -51,7 +51,7 @@ internal static class CustomActionFactory
 
     private sealed record ParsedItem
     {
-
+        internal int Id { get; init; }
         internal ItemID ItemId { get; init; }
         internal int itemLv { get; init; } = 1;
         internal ItemID ReplacedItemId { get; init; }
@@ -61,6 +61,7 @@ internal static class CustomActionFactory
             return new ShopItem
             {
                 ItemId = item.ItemId,
+                id = item.Id,
                 itemLv = item.itemLv,
                 prices = item.Prices
             };
@@ -116,6 +117,7 @@ internal static class CustomActionFactory
 
             parsedItems.Add(new ParsedItem
             {
+                Id = id,
                 ItemId = (ItemID)id,
                 itemLv = level,
                 ReplacedItemId = (ItemID)replacedItemId,

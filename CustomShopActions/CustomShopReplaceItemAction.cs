@@ -24,7 +24,7 @@ internal class CustomShopReplaceItemAction : ICustomShopPageAction
             ItemId = newItem,
             prices = price,
             itemLv = itemLevel,
-            id = 0,
+            id = (int)newItem,
             storyLineFrag = GameFlagData.None
         };
     }

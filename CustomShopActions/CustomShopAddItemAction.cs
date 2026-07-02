@@ -18,6 +18,7 @@ internal class CustomShopAddItemAction : ICustomShopPageAction
 
         _shopItem = new ShopItem
         {
+            id = (int)itemId,
             ItemId = itemId,
             prices = price,
             itemLv = itemLevel

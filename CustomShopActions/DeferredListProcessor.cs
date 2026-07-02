@@ -34,7 +34,7 @@ internal sealed class DeferredListProcessor
         _actions.AddRange(actions);
     }
 
-    internal void ApplyAll(ref NpcShopTable shop)
+    internal void ApplyAll(NpcShopTable shop)
     {
         foreach (var action in _actions)
         {

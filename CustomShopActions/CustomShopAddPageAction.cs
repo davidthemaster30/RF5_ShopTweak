@@ -72,6 +72,7 @@ internal class CustomShopAddPageAction : ICustomShopPageAction
     {
         return new ShopItem
         {
+            id = (int)item.ItemId,
             ItemId = item.ItemId,
             itemLv = item.itemLv,
             prices = item.prices
