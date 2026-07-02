@@ -1,218 +1,186 @@
-﻿using System.Text;
+using System.Text.RegularExpressions;
+using RF5SHOP;
 
 namespace RF5_ShopTweak;
-
-public class IniParser
+#pragma warning disable CA1307 // Specify StringComparison for correctness
+#pragma warning disable CA1310 // Specify StringComparison for correctness
+#pragma warning disable S4058 // Specify StringComparison for correctness
+internal static class IniParser
 {
-	private Dictionary<string, Dictionary<string, TypeSet>> data = new Dictionary<string, Dictionary<string, TypeSet>>();
-
-	public IniParser()
+	public static bool IsShopName(this string line)
 	{
+		return line.StartsWith('[') && line.EndsWith(']');
 	}
 
-	public IniParser(string fileName)
+	public static string GetShopName(this string line)
 	{
-		string line = "";
-		string category = "";
-		using (StreamReader file = new StreamReader(fileName, Encoding.GetEncoding("utf-8")))
-		{
-			while ((line = file.ReadLine()) is not null)
-			{
-				line = line.Trim();
-				int delimiter = line.IndexOf(';');
-				if (delimiter > -1)
-				{
-					line = line.Substring(0, delimiter).Trim();
-				}
-				if (line.Length <= 0)
-				{
-					continue;
-				}
+		return line[1..^1];
+	}
 
-				if (line.StartsWith("[") && line.EndsWith("]"))
+	public static int GetPageNumber(this string value)
+	{
+		var extractedInt = Regex.Match(value, @"\d+").Value;
+
+		return int.Parse(extractedInt);
+	}
+
+	public static float GetPriceMultiplier(this string value)
+	{
+		if (float.TryParse(value, out float multiplier))
+		{
+			return multiplier;
+		}
+		else
+		{
+			ShopTweakPlugin.Log.LogWarning($"Bad PriceMultiplier in ini file : {value}");
+			return -1.0f;
+		}
+	}
+
+	public static NpcShopType ConvertOrThrow(this string shopName)
+	{
+		if (!Enum.TryParse<NpcShopType>(shopName, out var shopType))
+		{
+			throw new Exception($"Invalid NpcShopType {shopName}");
+		}
+
+		return shopType;
+	}
+
+	private record State
+	{
+		internal List<CustomShop> shops = [];
+		internal NpcShopType? currentNpcShopType;
+		internal DeferredListProcessor currentDeferredList = new();
+		internal float currentPriceMultiplier;
+
+		internal State()
+		{
+			Reset();
+		}
+
+		internal void Reset()
+		{
+			currentNpcShopType = null;
+			currentDeferredList = new();
+			currentPriceMultiplier = -1.0f;
+		}
+
+		internal void HandleCurrentList()
+		{
+			if (currentNpcShopType is not null)
+			{
+				if (!currentDeferredList.IsEmpty())
 				{
-					category = line.Substring(1, line.Length - 2);
+					shops.Add(new CustomShop
+					{
+						PriceMultiplier = currentPriceMultiplier,
+						ShopTweaks = currentDeferredList,
+						ShopType = (NpcShopType)currentNpcShopType
+					});
+					Reset();
 				}
 				else
 				{
-					delimiter = line.IndexOf('=');
-					if (delimiter > -1)
-					{
-						string key = line.Substring(0, delimiter).Trim();
-						string value = line.Substring(delimiter + 1);
-
-						if (!data.ContainsKey(category))
-						{
-							data.Add(category, new Dictionary<string, TypeSet>());
-						}
-
-						if (!data[category].ContainsKey(key))
-						{
-							data[category].Add(key, ParseValue(value));
-						}
-					}
+					ShopTweakPlugin.Log.LogWarning($"currentNpcShopType [{currentNpcShopType}] has no actions.");
 				}
 			}
 		}
 	}
 
-	public bool GetBool(string category, string name, bool defaultValue)
+	internal static List<CustomShop> ParseFile(string fileName)
 	{
-		return InsertBool(category, name, defaultValue);
-	}
+		var myState = new State();
 
-	public float GetFloat(string category, string name, float defaultValue)
-	{
-		return InsertFloat(category, name, defaultValue);
-	}
+		string currentNewPageName = string.Empty;
 
-	public int GetInt(string category, string name, int defaultValue)
-	{
-		return InsertInt(category, name, defaultValue);
-	}
-
-	public string GetString(string category, string name, string defaultValue)
-	{
-		return InsertString(category, name, defaultValue);
-	}
-
-	public void Save(string fileName)
-	{
-		using StreamWriter file = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8"));
-
-		foreach (var category in data)
+		foreach (var line in File.ReadLines(fileName))
 		{
-			file.WriteLine(string.Format("[{0}]", category.Key));
-			foreach (var keyValue in category.Value)
+			var trimmedLine = line.Trim();
+
+			// Skip empty lines or comments.
+			if (string.IsNullOrEmpty(trimmedLine) || trimmedLine.StartsWith(';'))
 			{
-				file.WriteLine(string.Format("{0}={1}", keyValue.Key, keyValue.Value.stringValue));
+				continue;
 			}
-			file.WriteLine();
+			ShopTweakPlugin.Log.LogDebug($"trimmedLine : {trimmedLine}");
+			// Handle sections (shops).
+			if (trimmedLine.IsShopName())
+			{
+				myState.HandleCurrentList();
+
+				var shopName = trimmedLine.GetShopName();
+				myState.currentNpcShopType = shopName.ConvertOrThrow();
+				continue;
+			}
+
+			if (myState.currentNpcShopType is null)
+			{
+				ShopTweakPlugin.Log.LogWarning($"Invalid ini format. Missing shop type before line: {trimmedLine}");
+				continue;
+			}
+
+			// Handle key-value pairs.
+			var delimiterIndex = trimmedLine.IndexOf('='); //Need first IndexOf for the ReplaceAction
+			if (delimiterIndex <= -1)
+			{
+				continue;
+			}
+
+			var key = trimmedLine[..delimiterIndex].Trim();
+			var value = trimmedLine[(delimiterIndex + 1)..].Trim();
+
+			switch (key)
+			{
+				case string k when k.StartsWith("NewPageName"):
+					currentNewPageName = value;
+					break;
+
+				case string k when k.StartsWith("NewPage"):
+					if (string.IsNullOrEmpty(currentNewPageName))
+					{
+						ShopTweakPlugin.Log.LogError($"Invalid ini format. Missing page name before line: {trimmedLine}");
+						currentNewPageName = "Unknown";
+					}
+
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeAddPage(value, currentNewPageName));
+					currentNewPageName = string.Empty;
+					break;
+
+				case string k when k.StartsWith("AddItem"):
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeAddItems(value, GetPageNumber(key)));
+					currentNewPageName = string.Empty;
+					break;
+
+				case string k when k.StartsWith("RemoveItem"):
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeRemoveItems(value, GetPageNumber(key)));
+					currentNewPageName = string.Empty;
+					break;
+
+				case string k when k.StartsWith("ReplaceItem"):
+					myState.currentDeferredList.Enqueue(CustomActionFactory.MakeReplaceItems(value, GetPageNumber(key)));
+					currentNewPageName = string.Empty;
+					break;
+
+				case "PriceMultiplier":
+					myState.currentPriceMultiplier = value.GetPriceMultiplier();
+					currentNewPageName = string.Empty;
+					break;
+
+				default:
+					ShopTweakPlugin.Log.LogWarning($"Unhandled line in ini file : {trimmedLine}");
+					break;
+			}
+
 		}
+
+		myState.HandleCurrentList();
+
+		return myState.shops;
 	}
 
-	private bool InsertBool(string category, string key, bool value)
-	{
-		if (!data.ContainsKey(category))
-		{
-			data.Add(category, new Dictionary<string, TypeSet>());
-		}
 
-		if (!data[category].ContainsKey(key))
-		{
-			data[category].Add(key, new TypeSet(value));
-		}
-
-		return data[category][key].boolValue;
-	}
-
-	private float InsertFloat(string category, string key, float value)
-	{
-		if (!data.ContainsKey(category))
-		{
-			data.Add(category, new Dictionary<string, TypeSet>());
-		}
-
-		if (!data[category].ContainsKey(key))
-		{
-			data[category].Add(key, new TypeSet(value));
-		}
-
-		return data[category][key].floatValue;
-	}
-
-	private int InsertInt(string category, string key, int value)
-	{
-		if (!data.ContainsKey(category))
-			data.Add(category, new Dictionary<string, TypeSet>());
-		if (!data[category].ContainsKey(key))
-			data[category].Add(key, new TypeSet(value));
-		return data[category][key].intValue;
-	}
-
-	private string InsertString(string category, string key, string value)
-	{
-		if (!data.ContainsKey(category))
-		{
-			data.Add(category, new Dictionary<string, TypeSet>());
-		}
-
-		if (!data[category].ContainsKey(key))
-		{
-			data[category].Add(key, new TypeSet(value));
-		}
-
-		return data[category][key].stringValue;
-	}
-
-	private TypeSet ParseValue(string value)
-	{
-		if (value.Length <= 0)
-		{
-			return null;
-		}
-
-		if (string.Compare(value, "true", true) == 0)
-		{
-			return new TypeSet(true);
-		}
-
-		if (string.Compare(value, "false", true) == 0)
-		{
-			return new TypeSet(false);
-		}
-
-		float fvalue;
-		if (float.TryParse(value, out fvalue))
-		{
-			return new TypeSet(fvalue);
-		}
-
-		int ivalue;
-		if (int.TryParse(value, out ivalue))
-		{
-			return new TypeSet(ivalue);
-		}
-
-		return new TypeSet(value);
-	}
-	class TypeSet
-	{
-		public bool boolValue = false;
-		public float floatValue = 0f;
-		public int intValue = 0;
-		public string stringValue = "";
-
-		public TypeSet(bool boolValue)
-		{
-			this.boolValue = boolValue;
-			intValue = boolValue ? 1 : 0;
-			floatValue = boolValue ? 1.0f : 0.0f;
-			stringValue = boolValue ? "true" : "false";
-		}
-
-		public TypeSet(int intValue)
-		{
-			boolValue = intValue > 0;
-			this.intValue = intValue;
-			floatValue = intValue;
-			stringValue = intValue.ToString();
-		}
-
-		public TypeSet(float floatValue)
-		{
-			boolValue = floatValue > 0;
-			intValue = (int)floatValue;
-			this.floatValue = floatValue;
-			stringValue = floatValue.ToString();
-		}
-
-		public TypeSet(string stringValue)
-		{
-			boolValue = stringValue.Length > 0;
-			int.TryParse(stringValue, out intValue);
-			float.TryParse(stringValue, out floatValue);
-			this.stringValue = stringValue;
-		}
-	}
 }
+#pragma warning restore CA1307 // Specify StringComparison for correctness
+#pragma warning restore CA1310 // Specify StringComparison for correctness
+#pragma warning restore S4058 // Specify StringComparison for correctness

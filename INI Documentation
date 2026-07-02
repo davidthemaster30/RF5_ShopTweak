@@ -1,0 +1,96 @@
+The format to add actions are in a "action#=ItemID+Lv+Price" format, 
+where "action" is self-described, 
+"#" is the targeted page and 
+ItemID+Lv+Price specifies the desired Item by it's ingame "ItemID" (see ItemIDs), the desired Level (1-10) and the Price discount desired, applied as a percentage (ex: 50 => 50 / 100 = 1/2 price)
+Lv and Price are optional and will default to Level 1 and Price 100 if unspecified
+
+First, choose a shop type:
+[VarietyShop]
+[BlacksmithShop]
+[Restaurent]
+[CrystalShop]
+[Hospital]
+[FlowerShop]
+[VarietyShop2]
+[CrystalShop2] //Rotating Stock
+[BlacksmithShop2] //Ore Shop
+
+
+Then decide if you want to:
+    - Add items to an existing page (AddItem)
+    - Replace items in an existing page (ReplaceItem)
+    - Remove items from an existing page (RemoveItem)
+    - Add a whole new page (NewPageName + NewPage)
+        - Start with a NewPageName#, followed by NewPage#
+        - NewPageName can only use the text predefined by the ingame UITextDic.DICID, other names will display blank
+        - Many pages can be added, as definded by the #
+All the actions can be combined together under the same shop.
+Each action has to be followed by a number, representing the targeted page.
+
+Examples:
+Add items to existing pages
+[BlacksmithShop2]
+AddItem1=1502+2+50
+Indicates the addition of Lumber Lv2 to the Blacksmith Ore Shop, with a 50% discount (multiplicative with PriceMultiplier!)
+
+Replace existing items
+[BlacksmithShop2]
+ReplaceItem1=2152=2171+6
+Replace Iron with Tenfold Steel Lv6 on page 1 of the Blacksmith Shop Ore Shop
+
+Remove Existing Items
+[BlacksmithShop2]
+RemoveItem1=2152
+Remove Iron item from Blacksmith Shop Ore Shop from page 1
+
+Add new page
+[BlacksmithShop2]
+NewPageName1=SHOPCAT_Blacksmith_Stone_00
+NewPage1=1502+4,1502+10
+NewPageName2=SHOPCAT_Blacksmith_Stone_00
+NewPage2=1503+10
+Indicates the addition of Lumber Lv4 and Lumber Lv10 to the Blacksmith Ore Shop in the first new page, and adding Lv10 Material Stone to the second new page
+
+Combine them all together
+[BlacksmithShop2]
+AddItem1=1502+2+50
+RemoveItem1=2152
+ReplaceItem1=2152=2171+6
+NewPageName1=SHOPCAT_Blacksmith_Stone_00
+NewPage1=1502+4,1502+10
+NewPageName2=SHOPCAT_Blacksmith_Stone_00
+NewPage2=1503+10
+
+---
+UITextDic.DICID
+SHOPCAT_BlackSmith_Wapon_00
+SHOPCAT_BlackSmith_Wapon_01
+SHOPCAT_BlackSmith_Wapon_02
+SHOPCAT_BlackSmith_Wapon_03
+SHOPCAT_BlackSmith_Wapon_04
+SHOPCAT_BlackSmith_Acce_00
+SHOPCAT_BlackSmith_Acce_01
+SHOPCAT_BlackSmith_Arm_00
+SHOPCAT_BlackSmith_Arm_01
+SHOPCAT_BlackSmith_Tool_00
+SHOPCAT_BlackSmith_Tool_01
+SHOPCAT_Blacksmith_Stone_00
+SHOPCAT_Variety_Seed_00
+SHOPCAT_Variety_Seed_01
+SHOPCAT_Variety_Dekiai_00
+SHOPCAT_Variety_Vesi_00
+SHOPCAT_Variety_Fish_00
+SHOPCAT_Restaurent_Cook_00
+SHOPCAT_CrystalShop_Magic_00
+SHOPCAT_CrystalShop_Magic_01
+SHOPCAT_CrystalShop_RA_00
+SHOPCAT_CrystalShop_RA_01
+SHOPCAT_CrystalShop_Jem_00
+SHOPCAT_CrystalShop_Koueki_00
+SHOPCAT_Hospital_Drag_00
+SHOPCAT_FlowerShop_Seed_00
+SHOPCAT_FlowerShop_Eiyouzai_00
+SHOPCAT_FlowerShop_Flower_00
+SHOPCAT_Builder_00
+SHOPCAT_Furniture_00
+SHOPCAT_DUMMY
