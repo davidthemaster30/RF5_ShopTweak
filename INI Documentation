@@ -12,8 +12,8 @@ First, choose a shop type:
 [Hospital]
 [FlowerShop]
 [VarietyShop2]
-[CrystalShop2]
-[BlacksmithShop2]
+[CrystalShop2] //Rotating Stock
+[BlacksmithShop2] //Ore Shop
 
 
 Then decide if you want to:
