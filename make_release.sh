@@ -9,7 +9,7 @@ mkdir -p BepInEx/config
 cp './bin/Release/net6.0/RF5_ShopTweak.dll' BepInEx/plugins/RF5_ShopTweak.dll
 cp './bin/Release/net6.0/RF5_ShopTweak.ini' BepInEx/plugins/RF5_ShopTweak.ini
 
-zip -r 'RF5_ShopTweak_v1.3.0.zip' BepInEx
+zip -r 'RF5_ShopTweak_v2.0.0.zip' BepInEx
 
 rm -rf BepInEx
 
