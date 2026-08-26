@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 rm -rf obj
 rm -rf bin
 
@@ -10,12 +11,11 @@ PROJECTNAME=$(grep -oP '(?<=<AssemblyName>)[^<]+' "$CSPROJ_PATH" || true)
 ZIP_NAME="${PROJECTNAME}_v${VERSION}.zip"
 
 mkdir -p BepInEx/plugins
-mkdir -p BepInEx/config
 
 cp './bin/Release/net6.0/RF5_ShopTweak.dll' BepInEx/plugins/RF5_ShopTweak.dll
 cp './bin/Release/net6.0/RF5_ShopTweak.ini' BepInEx/plugins/RF5_ShopTweak.ini
 
-zip -j "${ZIP_NAME}" BepInEx
+zip -r "${ZIP_NAME}" BepInEx
 
 rm -rf BepInEx
 
