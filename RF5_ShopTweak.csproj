@@ -5,7 +5,7 @@
     <Description>RF5_ShopTweak</Description>
     <Product>RF5_ShopTweak</Product>
     <Company>https://github.com/davidthemaster30/RF5_ShopTweak</Company>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RootNamespace>RF5_ShopTweak</RootNamespace>

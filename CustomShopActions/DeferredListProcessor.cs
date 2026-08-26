@@ -40,6 +40,5 @@ internal sealed class DeferredListProcessor
         {
             action.Apply(ref shop);
         }
-        _actions.Clear();
     }
 }
